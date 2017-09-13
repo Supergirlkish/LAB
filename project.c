@@ -41,16 +41,17 @@ int  main(void)
 			
 			// Turn the LED red
 			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
-			
+			 // Delay for a bit.
+       for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
 			 GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0x0);
-
-        // Delay for a bit.
-        for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
+       // Delay for a bit.
+       for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
         
 			
 			//Turn the LED blue
 			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
-					
+			 // Delay for a bit.
+       for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)		
 		  GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, 0x0);
 
        // Delay for a bit.
@@ -60,7 +61,8 @@ int  main(void)
 			
 			// Turn the LED green
 			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0XF );
-
+      // Delay for a bit.
+       for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
 
 																										// GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0x0);
 																										//  GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, 0x0);
