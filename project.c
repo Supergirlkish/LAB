@@ -14,6 +14,8 @@ __error__(char *pcFilename, uint32_t ui32Line)
 }
 #endif
 
+void (print_donkey)
+	
 
 int  main(void)
 {
@@ -36,9 +38,23 @@ int  main(void)
     GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_3);
     while(1)
     {
-				
-       
+			printf("select an option \n");
+			printf("1: This is the first thing \n");
+			printf("2: This is the second thing \n");
+			printf("3: This is the third thing \n");
 			
+			temp = getc(stdin);
+			
+			switch(temp)
+			{
+				case '1': print_chicken;
+				break;
+				case '2': print_
+			}
+		}
+		
+		{
+				
 			// Turn the LED red
 			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
 			 // Delay for a bit.
@@ -73,6 +89,7 @@ int  main(void)
         {
         }
 			//asd;kfjsadf;j
+				//;ajfsdkf
     
   }
 }

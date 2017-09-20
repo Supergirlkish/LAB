@@ -418,6 +418,16 @@
               <FileType>1</FileType>
               <FilePath>.\src\example.c</FilePath>
             </File>
+            <File>
+              <FileName>uart_helper.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\uart_helper.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart_helper.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\uart_helper.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
