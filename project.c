@@ -18,9 +18,10 @@ __error__(char *pcFilename, uint32_t ui32Line)
 
 //void (print_donkey)
 	
-void SetupHardware();
+void SetupHardware()
+{
        UartSetup();
-
+}
 
 int  main(void)
 {
