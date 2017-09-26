@@ -17900,246 +17900,8 @@ int fgetc(FILE *f);
 #line 2 "project.c"
 #line 3 "project.c"
 #line 4 "project.c"
-#line 1 "uart_helper.c"
-#line 1 "Uart_helper.h"
-#line 2 "Uart_helper.h"
-#line 3 "Uart_helper.h"
-#line 4 "Uart_helper.h"
-#line 5 "Uart_helper.h"
-#line 6 "Uart_helper.h"
-#line 7 "Uart_helper.h"
-#line 8 "Uart_helper.h"
-#line 9 "Uart_helper.h"
-#line 10 "Uart_helper.h"
 
 
-void UartSetup(void);		
-
-
-int fputc(int ch, FILE *f);
-
-
-
-int fgetc(FILE *f);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 2 "uart_helper.c"
-
-
-
-
-
-
-
-
-
-void UartSetup()
-{
-		SysCtlPeripheralEnable(0xf0001800);		
-		while(!SysCtlPeripheralReady(0xf0001800))
-		{
-			
-		}
-		
-		SysCtlPeripheralEnable(0xf0000800); 		
-		GPIOPinConfigure(0x00000001); 								
-		GPIOPinConfigure(0x00000401); 								
-		
-		
-		GPIOPinTypeUART(0x40004000, 0x00000002|0x00000002);
-		GPIOPinTypeUART(0x40004000, 0x00000001|0x00000002);
-		
-		
-		
-		SysCtlClockSet(0x07800000 | 0x00003800 | 0x00000000 | 0x00000540);   
-		UARTConfigSetExpClk(0x4000C000, SysCtlClockGet(), 38400,(0x00000060 | 0x00000000 |0x00000000));
-}
-
-
-
-
-
-void UART_OutChar(char data){
-  while(((*((volatile uint32_t *)0x4000C018))&0x00000020) != 0);
-  (*((volatile uint32_t *)0x4000C000)) = data;
-}
-
-
-int fputc(int ch, FILE *f){
-  if((ch == 10) || (ch == 13) || (ch == 27)){
-    UART_OutChar(13);
-    UART_OutChar(10);
-    return 1;
-  }
-  UART_OutChar(ch);
-  return 1;
-}
-
-
-
-
-
-char UART_InChar()
-{
-	while(((*((volatile uint32_t *)0x4000C018))&0x00000010) !=0){};
-	return ((char)((*((volatile uint32_t *)0x4000C000))&0xFF)); 
-}
-
-
-int fgetc(FILE *f){
-  return UART_InChar();
-}
-
-
-int ferror(FILE *f){
-   
-  return 1;
-}
-
-#line 5 "project.c"
-#line 1 "uart_helper.h"
-#line 2 "uart_helper.h"
-#line 3 "uart_helper.h"
-#line 4 "uart_helper.h"
-#line 5 "uart_helper.h"
-#line 6 "uart_helper.h"
-#line 7 "uart_helper.h"
-#line 8 "uart_helper.h"
-#line 9 "uart_helper.h"
-#line 10 "uart_helper.h"
-
-
-void UartSetup(void);		
-
-
-int fputc(int ch, FILE *f);
-
-
-
-int fgetc(FILE *f);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 6 "project.c"
 
 
 
@@ -18170,7 +17932,6 @@ int  main(void)
     
 		}
     
-		
 		
     
 		GPIOPinTypeGPIOOutput(0x40025000, 0x00000002);
@@ -18209,62 +17970,99 @@ int  main(void)
 			
 			GPIOPinWrite (0x40025000, 0x00000002, 0XF );
 			 
-       for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+       for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+	     {
+			 }
 			 GPIOPinWrite(0x40025000, 0x00000002, 0x0);
        
-       for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
-        
+       for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+       {
+			 }				 
 			
 			
 			GPIOPinWrite (0x40025000, 0x00000004, 0XF );
 			 
-       for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)		
+       for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)		
+        {
+        } 	
+	
 		  GPIOPinWrite(0x40025000, 0x00000004, 0x0);
 
        
-        for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
-        	
+        for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+        {
+				}					
 
 			
 			
 			GPIOPinWrite (0x40025000, 0x00000008, 0XF );
       
-        for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
-
+        for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+        {
+        }
 																										         
-        GPIOPinWrite(0x40025000, 0x00000008, 0x0);
+      GPIOPinWrite(0x40025000, 0x00000008, 0x0);
 
-        for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++) 
+        for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++) 
+				{
+				}
+			
+			GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000002, 0XF );
 				
-				GPIOPinWrite (0x40025000, 0x00000002, 0XF );
-				GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+			
+			GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
 				
-				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+			
+			GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000002, 0XF );
 				
-				GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
-				GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+        {
+        }
 				
-				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+      GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+			
+			GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+	    GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
 
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
 				
-				GPIOPinWrite (0x40025000, 0x00000002, 0XF );
-				GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+			
+			GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000002, 0XF );
 				
-				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				
+				{
+				}
 
-        GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
-				GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
+	    GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
 				
-				
-				GPIOPinWrite (0x40025000, 0x00000004, 0XF );
-				GPIOPinWrite (0x40025000, 0x00000008, 0XF );
-				
-				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
-
-	      GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
-				GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
-
-				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
 
         {
         }

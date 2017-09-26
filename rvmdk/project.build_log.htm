@@ -54,24 +54,16 @@ driverlib/hibernate.h(231): warning:  #231-D: declaration is not visible outside
   extern void HibernateCalendarMatchSet(uint32_t ui32Index, struct tm *psTime);
 driverlib/hibernate.h(232): warning:  #231-D: declaration is not visible outside of function
   extern void HibernateCalendarMatchGet(uint32_t ui32Index, struct tm *psTime);
-uart_helper.c(73): warning:  #1-D: last line of file ends without a newline
-  // this function does the same thing as UartSetup(), but uses direct register access method
-project.c(144): warning:  #1-D: last line of file ends without a newline
+project.c(180): warning:  #1-D: last line of file ends without a newline
   }
 project.c(29): warning:  #177-D: variable "temp"  was declared but never referenced
   	  uint8_t temp;
-project.c: 7 warnings, 0 errors
+project.c: 6 warnings, 0 errors
 linking...
-.\rvmdk\project.axf: Error: L6200E: Symbol UART_InChar multiply defined (by uart_helper.o and project.o).
-.\rvmdk\project.axf: Error: L6200E: Symbol UART_OutChar multiply defined (by uart_helper.o and project.o).
-.\rvmdk\project.axf: Error: L6200E: Symbol UartSetup multiply defined (by uart_helper.o and project.o).
-.\rvmdk\project.axf: Error: L6200E: Symbol ferror multiply defined (by uart_helper.o and project.o).
-.\rvmdk\project.axf: Error: L6200E: Symbol fgetc multiply defined (by uart_helper.o and project.o).
-.\rvmdk\project.axf: Error: L6200E: Symbol fputc multiply defined (by uart_helper.o and project.o).
-Not enough information to list image symbols.
-Not enough information to list load addresses in the image map.
-Finished: 2 information, 0 warning and 6 error messages.
-".\rvmdk\project.axf" - 6 Error(s), 12 Warning(s).
+Program Size: Code=1680 RO-data=16 RW-data=0 ZI-data=256  
+FromELF: creating hex file...
+After Build - User command #1: fromelf --bin --output .\rvmdk\project.bin .\rvmdk\project.axf
+".\rvmdk\project.axf" - 0 Error(s), 11 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -94,7 +86,6 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Target not created.
 Build Time Elapsed:  00:00:02
 </pre>
 </body>

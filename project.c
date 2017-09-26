@@ -1,8 +1,8 @@
 #include "project.h"
 #include <stdio.h>
 #include <stdint.h>
-#include "uart_helper.c"
-#include "uart_helper.h"
+//#include "uart_helper.c"
+//#include "uart_helper.h"
 //*****************************************************************************
 //
 // Working on the UART today 9/20/17
@@ -38,7 +38,6 @@ int  main(void)
     
 		}
     
-		
 		// Enable the GPIO pin for the LED (PF3).  Set the direction as output, and
     // enable the GPIO pin for digital function.
 		GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1);
@@ -77,62 +76,99 @@ int  main(void)
 			// Turn the LED red
 			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
 			 // Delay for a bit.
-       for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+       for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+	     {
+			 }
 			 GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0x0);
        // Delay for a bit.
-       for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
-        
+       for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+       {
+			 }				 
 			
 			//Turn the LED blue
 			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
 			 // Delay for a bit.
-       for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)		
+       for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)		
+        {
+        } 	
+	
 		  GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, 0x0);
 
        // Delay for a bit.
-        for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
-        	
+        for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+        {
+				}					
 
 			
 			// Turn the LED green
 			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0XF );
       // Delay for a bit.
-        for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
-
+        for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+        {
+        }
 																										         
-        GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, 0x0);
+      GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, 0x0);
 
-        for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++) // Delay for a bit.
+        for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++) // Delay for a bit.
+				{
+				}
+			//purple 	
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
 				
-				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
-				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+			
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0X0 );
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0X0 );
 				
-				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+			//yellow
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0XF );
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
 				
-				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0X0 );
-				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0X0 );
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+        {
+        }
 				
-				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+      GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0X0 );
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0X0 );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+			//cyan
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0XF );
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+	    GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0X0 );
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0X0 );
 
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
 				
-				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
-				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0XF );
+			//white	
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0XF );
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
 				
-				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				
+				{
+				}
 
-        GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0X0 );
-				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0X0 );
+	    GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0X0 );
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0X0 );
+			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0X0 );
 				
-				
-				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
-				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0XF );
-				
-				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
-
-	      GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0X0 );
-				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0X0 );
-
-				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
 
         {
         }

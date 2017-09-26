@@ -43,6 +43,3 @@
 .\rvmdk\project.o: src/uart_helper.h
 .\rvmdk\project.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\rvmdk\project.o: src/../inc/tm4c123gh6pm.h
-.\rvmdk\project.o: uart_helper.c
-.\rvmdk\project.o: Uart_helper.h
-.\rvmdk\project.o: uart_helper.h
