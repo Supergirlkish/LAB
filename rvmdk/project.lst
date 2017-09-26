@@ -64537,23 +64537,23 @@ N			// Turn the LED red
 N			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
 X			GPIOPinWrite (0x40025000, 0x00000002, 0XF );
 N			 // Delay for a bit.
-N       for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
+N       for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
 N			 GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0x0);
 X			 GPIOPinWrite(0x40025000, 0x00000002, 0x0);
 N       // Delay for a bit.
-N       for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
+N       for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
 N        
 N			
 N			//Turn the LED blue
 N			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
 X			GPIOPinWrite (0x40025000, 0x00000004, 0XF );
 N			 // Delay for a bit.
-N       for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)		
+N       for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)		
 N		  GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, 0x0);
 X		  GPIOPinWrite(0x40025000, 0x00000004, 0x0);
 N
 N       // Delay for a bit.
-N        for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
+N        for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
 N        	
 N
 N			
@@ -64561,25 +64561,63 @@ N			// Turn the LED green
 N			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0XF );
 X			GPIOPinWrite (0x40025000, 0x00000008, 0XF );
 N      // Delay for a bit.
-N       for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
+N        for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
 N
-N																										// GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0x0);
-N																										//  GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, 0x0);
+N																										         
 N        GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, 0x0);
 X        GPIOPinWrite(0x40025000, 0x00000008, 0x0);
 N
-N        // Delay for a bit.
-N        for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
+N        for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++) // Delay for a bit.
+N				
+N				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
+X				GPIOPinWrite (0x40025000, 0x00000002, 0XF );
+N				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
+X				GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+N				
+N				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+N				
+N				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0X0 );
+X				GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
+N				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0X0 );
+X				GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
+N				
+N				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+N
+N				
+N				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
+X				GPIOPinWrite (0x40025000, 0x00000002, 0XF );
+N				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0XF );
+X				GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+N				
+N				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+N
+N        GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0X0 );
+X        GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
+N				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0X0 );
+X				GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
+N				
+N				
+N				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
+X				GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+N				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0XF );
+X				GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+N				
+N				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+N
+N	      GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0X0 );
+X	      GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
+N				GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0X0 );
+X				GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
+N
+N				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+N
 N        {
 N        }
-N			//asd;kfjsadf;j
-N				//;ajfsdkf
+N			
 N    
 N  }
 N
 N}
+W "project.c" 144 2 last line of file ends without a newline
 W "project.c" 29 12 variable "temp"  was declared but never referenced
 N}
-W "project.c" 117 4 last line of file ends without a newline
-E "project.c" 117 3 expected a declaration
-N		}

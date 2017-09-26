@@ -22,7 +22,7 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 C:\Users\mmatti\Documents\GitHub\lab\project.uvprojx
-Project File Date:  09/20/2017
+Project File Date:  09/23/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
@@ -56,14 +56,22 @@ driverlib/hibernate.h(232): warning:  #231-D: declaration is not visible outside
   extern void HibernateCalendarMatchGet(uint32_t ui32Index, struct tm *psTime);
 uart_helper.c(73): warning:  #1-D: last line of file ends without a newline
   // this function does the same thing as UartSetup(), but uses direct register access method
+project.c(144): warning:  #1-D: last line of file ends without a newline
+  }
 project.c(29): warning:  #177-D: variable "temp"  was declared but never referenced
   	  uint8_t temp;
-project.c(117): warning:  #1-D: last line of file ends without a newline
-  		}
-project.c(117): error:  #169: expected a declaration
-  		}
-project.c: 7 warnings, 1 error
-".\rvmdk\project.axf" - 1 Error(s), 12 Warning(s).
+project.c: 7 warnings, 0 errors
+linking...
+.\rvmdk\project.axf: Error: L6200E: Symbol UART_InChar multiply defined (by uart_helper.o and project.o).
+.\rvmdk\project.axf: Error: L6200E: Symbol UART_OutChar multiply defined (by uart_helper.o and project.o).
+.\rvmdk\project.axf: Error: L6200E: Symbol UartSetup multiply defined (by uart_helper.o and project.o).
+.\rvmdk\project.axf: Error: L6200E: Symbol ferror multiply defined (by uart_helper.o and project.o).
+.\rvmdk\project.axf: Error: L6200E: Symbol fgetc multiply defined (by uart_helper.o and project.o).
+.\rvmdk\project.axf: Error: L6200E: Symbol fputc multiply defined (by uart_helper.o and project.o).
+Not enough information to list image symbols.
+Not enough information to list load addresses in the image map.
+Finished: 2 information, 0 warning and 6 error messages.
+".\rvmdk\project.axf" - 6 Error(s), 12 Warning(s).
 
 <h2>Software Packages used:</h2>
 

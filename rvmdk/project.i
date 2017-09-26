@@ -18209,41 +18209,68 @@ int  main(void)
 			
 			GPIOPinWrite (0x40025000, 0x00000002, 0XF );
 			 
-       for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
+       for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
 			 GPIOPinWrite(0x40025000, 0x00000002, 0x0);
        
-       for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
+       for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
         
 			
 			
 			GPIOPinWrite (0x40025000, 0x00000004, 0XF );
 			 
-       for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)		
+       for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)		
 		  GPIOPinWrite(0x40025000, 0x00000004, 0x0);
 
        
-        for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
+        for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
         	
 
 			
 			
 			GPIOPinWrite (0x40025000, 0x00000008, 0XF );
       
-       for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
+        for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
 
-																										
-																										
+																										         
         GPIOPinWrite(0x40025000, 0x00000008, 0x0);
 
-        
-        for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
+        for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++) 
+				
+				GPIOPinWrite (0x40025000, 0x00000002, 0XF );
+				GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+				
+				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+				
+				GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
+				GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
+				
+				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+
+				
+				GPIOPinWrite (0x40025000, 0x00000002, 0XF );
+				GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+				
+				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+
+        GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
+				GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
+				
+				
+				GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+				GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+				
+				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+
+	      GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
+				GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
+
+				for(ui32Loop = 0; ui32Loop < 300000; ui32Loop++)
+
         {
         }
 			
-				
     
   }
 
 }
 }
-		}
