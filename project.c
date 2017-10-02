@@ -1,11 +1,14 @@
+//Matthew Matti & Lakeysha Green 
 #include "project.h"
 #include <stdio.h>
 #include <stdint.h>
+#include "ADC_helper.c"
+#include "ADC_helper.h"
 //#include "uart_helper.c"
 //#include "uart_helper.h"
 //*****************************************************************************
 //
-// Working on the UART today 9/20/17
+// Working on the ADC today 9/27/17
 //
 //*****************************************************************************
 

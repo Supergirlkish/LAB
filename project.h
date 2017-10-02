@@ -40,18 +40,11 @@
 #include "driverlib/usb.h"
 #include "driverlib/watchdog.h"
 
-#include "src/uart_helper.h"
 
-//void UpdateMYButtons(void);
-//1 = pushed down
-//0 = not pushed
 
-  //struct MyButtons;
- //
-	
-	//unit8_t SW1;
- //	unit8_t SW2;
-	
-//;
+#include "C:\Users\mmatti\Documents\GitHub\lab\SysTick.h"
+#include "C:\Users\mmatti\Documents\GitHub\lab\ADC_helper.h"
+#include "C:\Users\mmatti\Documents\GitHub\lab\PWM.h"
 
- // extern struct MyButtons MyButtons
+#include "SysTick.h"
+

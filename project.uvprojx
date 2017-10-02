@@ -428,6 +428,46 @@
               <FileType>5</FileType>
               <FilePath>.\uart_helper.h</FilePath>
             </File>
+            <File>
+              <FileName>ADC_helper.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ADC_helper.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC_helper.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ADC_helper.h</FilePath>
+            </File>
+            <File>
+              <FileName>SysTick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SysTick.c</FilePath>
+            </File>
+            <File>
+              <FileName>SysTick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SysTick.h</FilePath>
+            </File>
+            <File>
+              <FileName>PWM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\PWM.c</FilePath>
+            </File>
+            <File>
+              <FileName>PWM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\PWM.h</FilePath>
+            </File>
+            <File>
+              <FileName>GPIO.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\GPIO.c</FilePath>
+            </File>
+            <File>
+              <FileName>GPIO.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\GPIO.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
