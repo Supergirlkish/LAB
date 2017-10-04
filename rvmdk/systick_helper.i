@@ -1,6 +1,18 @@
-#line 1 "PWM.c"
-#line 1 "PWM.h"
-#line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdbool.h"
+#line 1 "src\\SysTick_helper.c"
+#line 1 "src\\SysTick_helper.h"
+#line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdlib.h"
+ 
+ 
+ 
+
+
+
+
+ 
+ 
+
+
+
  
 
 
@@ -8,17 +20,724 @@
 
 
 
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
  
 
 
 
 
 
-#line 25 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdbool.h"
 
 
 
-#line 2 "PWM.h"
+#line 54 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdlib.h"
+
+
+  
+
+
+
+    typedef unsigned int size_t;    
+#line 70 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdlib.h"
+
+
+
+
+
+
+    
+
+
+
+    typedef unsigned short wchar_t;  
+#line 91 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdlib.h"
+
+typedef struct div_t { int quot, rem; } div_t;
+    
+typedef struct ldiv_t { long int quot, rem; } ldiv_t;
+    
+
+typedef struct lldiv_t { long long quot, rem; } lldiv_t;
+    
+
+
+#line 112 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdlib.h"
+   
+
+
+
+ 
+
+   
+
+
+
+
+ 
+#line 131 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdlib.h"
+   
+
+
+ 
+extern __declspec(__nothrow) int __aeabi_MB_CUR_MAX(void);
+
+   
+
+
+
+
+ 
+
+   
+
+
+
+
+ 
+
+
+
+
+extern __declspec(__nothrow) double atof(const char *  ) __attribute__((__nonnull__(1)));
+   
+
+
+
+ 
+extern __declspec(__nothrow) int atoi(const char *  ) __attribute__((__nonnull__(1)));
+   
+
+
+
+ 
+extern __declspec(__nothrow) long int atol(const char *  ) __attribute__((__nonnull__(1)));
+   
+
+
+
+ 
+
+extern __declspec(__nothrow) long long atoll(const char *  ) __attribute__((__nonnull__(1)));
+   
+
+
+
+ 
+
+
+extern __declspec(__nothrow) double strtod(const char * __restrict  , char ** __restrict  ) __attribute__((__nonnull__(1)));
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+extern __declspec(__nothrow) float strtof(const char * __restrict  , char ** __restrict  ) __attribute__((__nonnull__(1)));
+extern __declspec(__nothrow) long double strtold(const char * __restrict  , char ** __restrict  ) __attribute__((__nonnull__(1)));
+   
+
+ 
+
+extern __declspec(__nothrow) long int strtol(const char * __restrict  ,
+                        char ** __restrict  , int  ) __attribute__((__nonnull__(1)));
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern __declspec(__nothrow) unsigned long int strtoul(const char * __restrict  ,
+                                       char ** __restrict  , int  ) __attribute__((__nonnull__(1)));
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+extern __declspec(__nothrow) long long strtoll(const char * __restrict  ,
+                                  char ** __restrict  , int  )
+                          __attribute__((__nonnull__(1)));
+   
+
+
+
+
+ 
+extern __declspec(__nothrow) unsigned long long strtoull(const char * __restrict  ,
+                                            char ** __restrict  , int  )
+                                   __attribute__((__nonnull__(1)));
+   
+
+
+
+ 
+
+extern __declspec(__nothrow) int rand(void);
+   
+
+
+
+
+
+
+
+ 
+extern __declspec(__nothrow) void srand(unsigned int  );
+   
+
+
+
+
+
+
+ 
+
+struct _rand_state { int __x[57]; };
+extern __declspec(__nothrow) int _rand_r(struct _rand_state *);
+extern __declspec(__nothrow) void _srand_r(struct _rand_state *, unsigned int);
+struct _ANSI_rand_state { int __x[1]; };
+extern __declspec(__nothrow) int _ANSI_rand_r(struct _ANSI_rand_state *);
+extern __declspec(__nothrow) void _ANSI_srand_r(struct _ANSI_rand_state *, unsigned int);
+   
+
+
+ 
+
+extern __declspec(__nothrow) void *calloc(size_t  , size_t  );
+   
+
+
+
+ 
+extern __declspec(__nothrow) void free(void *  );
+   
+
+
+
+
+
+ 
+extern __declspec(__nothrow) void *malloc(size_t  );
+   
+
+
+
+ 
+extern __declspec(__nothrow) void *realloc(void *  , size_t  );
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+extern __declspec(__nothrow) int posix_memalign(void **  , size_t  , size_t  );
+   
+
+
+
+
+
+
+
+
+
+ 
+
+typedef int (*__heapprt)(void *, char const *, ...);
+extern __declspec(__nothrow) void __heapstats(int (*  )(void *  ,
+                                           char const *  , ...),
+                        void *  ) __attribute__((__nonnull__(1)));
+   
+
+
+
+
+
+
+
+
+
+
+ 
+extern __declspec(__nothrow) int __heapvalid(int (*  )(void *  ,
+                                           char const *  , ...),
+                       void *  , int  ) __attribute__((__nonnull__(1)));
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern __declspec(__nothrow) __declspec(__noreturn) void abort(void);
+   
+
+
+
+
+
+
+
+ 
+
+extern __declspec(__nothrow) int atexit(void (*  )(void)) __attribute__((__nonnull__(1)));
+   
+
+
+
+
+ 
+#line 436 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdlib.h"
+
+
+extern __declspec(__nothrow) __declspec(__noreturn) void exit(int  );
+   
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+extern __declspec(__nothrow) __declspec(__noreturn) void _Exit(int  );
+   
+
+
+
+
+
+
+
+      
+
+extern __declspec(__nothrow) char *getenv(const char *  ) __attribute__((__nonnull__(1)));
+   
+
+
+
+
+
+
+
+
+
+ 
+
+extern __declspec(__nothrow) int  system(const char *  );
+   
+
+
+
+
+
+
+
+
+
+ 
+
+extern  void *bsearch(const void *  , const void *  ,
+              size_t  , size_t  ,
+              int (*  )(const void *, const void *)) __attribute__((__nonnull__(1,2,5)));
+   
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+#line 524 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdlib.h"
+
+
+extern  void qsort(void *  , size_t  , size_t  ,
+           int (*  )(const void *, const void *)) __attribute__((__nonnull__(1,4)));
+   
+
+
+
+
+
+
+
+
+
+ 
+
+#line 553 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdlib.h"
+
+extern __declspec(__nothrow) __attribute__((const)) int abs(int  );
+   
+
+
+
+ 
+
+extern __declspec(__nothrow) __attribute__((const)) div_t div(int  , int  );
+   
+
+
+
+
+
+
+
+
+
+ 
+extern __declspec(__nothrow) __attribute__((const)) long int labs(long int  );
+   
+
+
+
+ 
+
+
+
+
+extern __declspec(__nothrow) __attribute__((const)) ldiv_t ldiv(long int  , long int  );
+   
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+extern __declspec(__nothrow) __attribute__((const)) long long llabs(long long  );
+   
+
+
+
+ 
+
+
+
+
+extern __declspec(__nothrow) __attribute__((const)) lldiv_t lldiv(long long  , long long  );
+   
+
+
+
+
+
+
+
+
+
+
+
+ 
+#line 634 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdlib.h"
+
+
+
+
+ 
+typedef struct __sdiv32by16 { int quot, rem; } __sdiv32by16;
+typedef struct __udiv32by16 { unsigned int quot, rem; } __udiv32by16;
+    
+typedef struct __sdiv64by32 { int rem, quot; } __sdiv64by32;
+
+__value_in_regs extern __declspec(__nothrow) __attribute__((const)) __sdiv32by16 __rt_sdiv32by16(
+     int  ,
+     short int  );
+   
+
+ 
+__value_in_regs extern __declspec(__nothrow) __attribute__((const)) __udiv32by16 __rt_udiv32by16(
+     unsigned int  ,
+     unsigned short  );
+   
+
+ 
+__value_in_regs extern __declspec(__nothrow) __attribute__((const)) __sdiv64by32 __rt_sdiv64by32(
+     int  , unsigned int  ,
+     int  );
+   
+
+ 
+
+
+
+
+ 
+extern __declspec(__nothrow) unsigned int __fp_status(unsigned int  , unsigned int  );
+   
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern __declspec(__nothrow) int mblen(const char *  , size_t  );
+   
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern __declspec(__nothrow) int mbtowc(wchar_t * __restrict  ,
+                   const char * __restrict  , size_t  );
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern __declspec(__nothrow) int wctomb(char *  , wchar_t  );
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+extern __declspec(__nothrow) size_t mbstowcs(wchar_t * __restrict  ,
+                      const char * __restrict  , size_t  ) __attribute__((__nonnull__(2)));
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+extern __declspec(__nothrow) size_t wcstombs(char * __restrict  ,
+                      const wchar_t * __restrict  , size_t  ) __attribute__((__nonnull__(2)));
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+extern __declspec(__nothrow) void __use_realtime_heap(void);
+extern __declspec(__nothrow) void __use_realtime_division(void);
+extern __declspec(__nothrow) void __use_two_region_memory(void);
+extern __declspec(__nothrow) void __use_no_heap(void);
+extern __declspec(__nothrow) void __use_no_heap_region(void);
+
+extern __declspec(__nothrow) char const *__C_library_version_string(void);
+extern __declspec(__nothrow) int __C_library_version_number(void);
+
+
+
+
+
+
+
+
+
+
+
+#line 892 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdlib.h"
+
+
+
+
+
+ 
+#line 2 "src\\SysTick_helper.h"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
  
  
@@ -275,805 +994,7 @@ typedef unsigned     long long uintmax_t;
 
 
  
-#line 3 "PWM.h"
-#line 1 ".\\driverlib\\sysctl.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 140 ".\\driverlib\\sysctl.h"
-
-
-
-
-
-
-
-
-#line 155 ".\\driverlib\\sysctl.h"
-
-
-
-
-
-
-
-
-#line 171 ".\\driverlib\\sysctl.h"
-
-
-
-
-
-
-
-#line 185 ".\\driverlib\\sysctl.h"
-                                            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 214 ".\\driverlib\\sysctl.h"
-
-
-
-
-
-
-
-#line 385 ".\\driverlib\\sysctl.h"
-
-
-
-
-
-
-
-#line 462 ".\\driverlib\\sysctl.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 486 ".\\driverlib\\sysctl.h"
-
-
-
-
-
-
-
-
-                                            
-
-                                            
-
-
-
-
-
-
-
-
-
-
-
-#line 516 ".\\driverlib\\sysctl.h"
-
-
-
-
-
-
-#line 535 ".\\driverlib\\sysctl.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 556 ".\\driverlib\\sysctl.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-extern uint32_t SysCtlSRAMSizeGet(void);
-extern uint32_t SysCtlFlashSizeGet(void);
-extern uint32_t SysCtlFlashSectorSizeGet(void);
-extern _Bool SysCtlPeripheralPresent(uint32_t ui32Peripheral);
-extern _Bool SysCtlPeripheralReady(uint32_t ui32Peripheral);
-extern void SysCtlPeripheralPowerOn(uint32_t ui32Peripheral);
-extern void SysCtlPeripheralPowerOff(uint32_t ui32Peripheral);
-extern void SysCtlPeripheralReset(uint32_t ui32Peripheral);
-extern void SysCtlPeripheralEnable(uint32_t ui32Peripheral);
-extern void SysCtlPeripheralDisable(uint32_t ui32Peripheral);
-extern void SysCtlPeripheralSleepEnable(uint32_t ui32Peripheral);
-extern void SysCtlPeripheralSleepDisable(uint32_t ui32Peripheral);
-extern void SysCtlPeripheralDeepSleepEnable(uint32_t ui32Peripheral);
-extern void SysCtlPeripheralDeepSleepDisable(uint32_t ui32Peripheral);
-extern void SysCtlPeripheralClockGating(_Bool bEnable);
-extern void SysCtlIntRegister(void (*pfnHandler)(void));
-extern void SysCtlIntUnregister(void);
-extern void SysCtlIntEnable(uint32_t ui32Ints);
-extern void SysCtlIntDisable(uint32_t ui32Ints);
-extern void SysCtlIntClear(uint32_t ui32Ints);
-extern uint32_t SysCtlIntStatus(_Bool bMasked);
-extern void SysCtlLDOSleepSet(uint32_t ui32Voltage);
-extern uint32_t SysCtlLDOSleepGet(void);
-extern void SysCtlLDODeepSleepSet(uint32_t ui32Voltage);
-extern uint32_t SysCtlLDODeepSleepGet(void);
-extern void SysCtlSleepPowerSet(uint32_t ui32Config);
-extern void SysCtlDeepSleepPowerSet(uint32_t ui32Config);
-extern void SysCtlReset(void);
-extern void SysCtlSleep(void);
-extern void SysCtlDeepSleep(void);
-extern uint32_t SysCtlResetCauseGet(void);
-extern void SysCtlResetCauseClear(uint32_t ui32Causes);
-extern void SysCtlBrownOutConfigSet(uint32_t ui32Config,
-                                    uint32_t ui32Delay);
-extern void SysCtlDelay(uint32_t ui32Count);
-extern void SysCtlMOSCConfigSet(uint32_t ui32Config);
-extern uint32_t SysCtlPIOSCCalibrate(uint32_t ui32Type);
-extern void SysCtlClockSet(uint32_t ui32Config);
-extern uint32_t SysCtlClockGet(void);
-extern void SysCtlDeepSleepClockSet(uint32_t ui32Config);
-extern void SysCtlDeepSleepClockConfigSet(uint32_t ui32Div,
-                                          uint32_t ui32Config);
-extern void SysCtlPWMClockSet(uint32_t ui32Config);
-extern uint32_t SysCtlPWMClockGet(void);
-extern void SysCtlIOSCVerificationSet(_Bool bEnable);
-extern void SysCtlMOSCVerificationSet(_Bool bEnable);
-extern void SysCtlPLLVerificationSet(_Bool bEnable);
-extern void SysCtlClkVerificationClear(void);
-extern void SysCtlGPIOAHBEnable(uint32_t ui32GPIOPeripheral);
-extern void SysCtlGPIOAHBDisable(uint32_t ui32GPIOPeripheral);
-extern void SysCtlUSBPLLEnable(void);
-extern void SysCtlUSBPLLDisable(void);
-extern uint32_t SysCtlClockFreqSet(uint32_t ui32Config,
-                                   uint32_t ui32SysClock);
-extern void SysCtlResetBehaviorSet(uint32_t ui32Behavior);
-extern uint32_t SysCtlResetBehaviorGet(void);
-extern void SysCtlClockOutConfig(uint32_t ui32Config, uint32_t ui32Div);
-extern void SysCtlAltClkConfig(uint32_t ui32Config);
-extern uint32_t SysCtlNMIStatus(void);
-extern void SysCtlNMIClear(uint32_t ui32Status);
-extern void SysCtlVoltageEventConfig(uint32_t ui32Config);
-extern uint32_t SysCtlVoltageEventStatus(void);
-extern void SysCtlVoltageEventClear(uint32_t ui32Status);
-extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
-
-
-
-
-
-
-
-
-
-
-#line 4 "PWM.h"
-#line 1 ".\\inc\\hw_memmap.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 116 ".\\inc\\hw_memmap.h"
-                                            
-
-                                            
-
-                                            
-#line 141 ".\\inc\\hw_memmap.h"
-                                            
-
-                                            
-#line 150 ".\\inc\\hw_memmap.h"
-
-#line 5 "PWM.h"
-#line 1 ".\\driverlib\\adc.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 74 ".\\driverlib\\adc.h"
-
-
-
-
-
-
-
-#line 124 ".\\driverlib\\adc.h"
-
-
-
-
-
-
-
-#line 148 ".\\driverlib\\adc.h"
-
-#line 155 ".\\driverlib\\adc.h"
-                                            
-#line 165 ".\\driverlib\\adc.h"
-                                            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 201 ".\\driverlib\\adc.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 228 ".\\driverlib\\adc.h"
-
-
-
-
-
-
-#line 242 ".\\driverlib\\adc.h"
-
-
-
-
-
-
-extern void ADCIntRegister(uint32_t ui32Base, uint32_t ui32SequenceNum,
-                           void (*pfnHandler)(void));
-extern void ADCIntUnregister(uint32_t ui32Base, uint32_t ui32SequenceNum);
-extern void ADCIntDisable(uint32_t ui32Base, uint32_t ui32SequenceNum);
-extern void ADCIntEnable(uint32_t ui32Base, uint32_t ui32SequenceNum);
-extern uint32_t ADCIntStatus(uint32_t ui32Base, uint32_t ui32SequenceNum,
-                             _Bool bMasked);
-extern void ADCIntClear(uint32_t ui32Base, uint32_t ui32SequenceNum);
-extern void ADCSequenceEnable(uint32_t ui32Base, uint32_t ui32SequenceNum);
-extern void ADCSequenceDisable(uint32_t ui32Base, uint32_t ui32SequenceNum);
-extern void ADCSequenceConfigure(uint32_t ui32Base, uint32_t ui32SequenceNum,
-                                 uint32_t ui32Trigger, uint32_t ui32Priority);
-extern void ADCSequenceStepConfigure(uint32_t ui32Base,
-                                     uint32_t ui32SequenceNum,
-                                     uint32_t ui32Step, uint32_t ui32Config);
-extern int32_t ADCSequenceOverflow(uint32_t ui32Base,
-                                   uint32_t ui32SequenceNum);
-extern void ADCSequenceOverflowClear(uint32_t ui32Base,
-                                     uint32_t ui32SequenceNum);
-extern int32_t ADCSequenceUnderflow(uint32_t ui32Base,
-                                    uint32_t ui32SequenceNum);
-extern void ADCSequenceUnderflowClear(uint32_t ui32Base,
-                                      uint32_t ui32SequenceNum);
-extern int32_t ADCSequenceDataGet(uint32_t ui32Base, uint32_t ui32SequenceNum,
-                                  uint32_t *pui32Buffer);
-extern void ADCProcessorTrigger(uint32_t ui32Base, uint32_t ui32SequenceNum);
-extern void ADCSoftwareOversampleConfigure(uint32_t ui32Base,
-                                           uint32_t ui32SequenceNum,
-                                           uint32_t ui32Factor);
-extern void ADCSoftwareOversampleStepConfigure(uint32_t ui32Base,
-                                               uint32_t ui32SequenceNum,
-                                               uint32_t ui32Step,
-                                               uint32_t ui32Config);
-extern void ADCSoftwareOversampleDataGet(uint32_t ui32Base,
-                                         uint32_t ui32SequenceNum,
-                                         uint32_t *pui32Buffer,
-                                         uint32_t ui32Count);
-extern void ADCHardwareOversampleConfigure(uint32_t ui32Base,
-                                           uint32_t ui32Factor);
-extern void ADCClockConfigSet(uint32_t ui32Base, uint32_t ui32Config,
-                              uint32_t ui32ClockDiv);
-extern uint32_t ADCClockConfigGet(uint32_t ui32Base, uint32_t *pui32ClockDiv);
-
-extern void ADCComparatorConfigure(uint32_t ui32Base, uint32_t ui32Comp,
-                                   uint32_t ui32Config);
-extern void ADCComparatorRegionSet(uint32_t ui32Base, uint32_t ui32Comp,
-                                   uint32_t ui32LowRef, uint32_t ui32HighRef);
-extern void ADCComparatorReset(uint32_t ui32Base, uint32_t ui32Comp,
-                               _Bool bTrigger, _Bool bInterrupt);
-extern void ADCComparatorIntDisable(uint32_t ui32Base,
-                                    uint32_t ui32SequenceNum);
-extern void ADCComparatorIntEnable(uint32_t ui32Base,
-                                   uint32_t ui32SequenceNum);
-extern uint32_t ADCComparatorIntStatus(uint32_t ui32Base);
-extern void ADCComparatorIntClear(uint32_t ui32Base, uint32_t ui32Status);
-extern void ADCIntDisableEx(uint32_t ui32Base, uint32_t ui32IntFlags);
-extern void ADCIntEnableEx(uint32_t ui32Base, uint32_t ui32IntFlags);
-extern uint32_t ADCIntStatusEx(uint32_t ui32Base, _Bool bMasked);
-extern void ADCIntClearEx(uint32_t ui32Base, uint32_t ui32IntFlags);
-extern void ADCSequenceDMAEnable(uint32_t ui32Base, uint32_t ui32SequenceNum);
-extern void ADCSequenceDMADisable(uint32_t ui32Base, uint32_t ui32SequenceNum);
-extern _Bool ADCBusy(uint32_t ui32Base);
-extern void ADCReferenceSet(uint32_t ui32Base, uint32_t ui32Ref);
-extern uint32_t ADCReferenceGet(uint32_t ui32Base);
-extern void ADCPhaseDelaySet(uint32_t ui32Base, uint32_t ui32Phase);
-extern uint32_t ADCPhaseDelayGet(uint32_t ui32Base);
-extern void ADCSampleRateSet(uint32_t ui32Base, uint32_t ui32ADCClock,
-                             uint32_t ui32Rate);
-extern uint32_t ADCSampleRateGet(uint32_t ui32Base);
-
-
-
-
-
-
-
-
-
-
-#line 6 "PWM.h"
-#line 1 ".\\driverlib\\uart.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 74 ".\\driverlib\\uart.h"
-
-
-
-
-
-
-
-
-
-
-#line 98 ".\\driverlib\\uart.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-extern void UARTParityModeSet(uint32_t ui32Base, uint32_t ui32Parity);
-extern uint32_t UARTParityModeGet(uint32_t ui32Base);
-extern void UARTFIFOLevelSet(uint32_t ui32Base, uint32_t ui32TxLevel,
-                             uint32_t ui32RxLevel);
-extern void UARTFIFOLevelGet(uint32_t ui32Base, uint32_t *pui32TxLevel,
-                             uint32_t *pui32RxLevel);
-extern void UARTConfigSetExpClk(uint32_t ui32Base, uint32_t ui32UARTClk,
-                                uint32_t ui32Baud, uint32_t ui32Config);
-extern void UARTConfigGetExpClk(uint32_t ui32Base, uint32_t ui32UARTClk,
-                                uint32_t *pui32Baud, uint32_t *pui32Config);
-extern void UARTEnable(uint32_t ui32Base);
-extern void UARTDisable(uint32_t ui32Base);
-extern void UARTFIFOEnable(uint32_t ui32Base);
-extern void UARTFIFODisable(uint32_t ui32Base);
-extern void UARTEnableSIR(uint32_t ui32Base, _Bool bLowPower);
-extern void UARTDisableSIR(uint32_t ui32Base);
-extern _Bool UARTCharsAvail(uint32_t ui32Base);
-extern _Bool UARTSpaceAvail(uint32_t ui32Base);
-extern int32_t UARTCharGetNonBlocking(uint32_t ui32Base);
-extern int32_t UARTCharGet(uint32_t ui32Base);
-extern _Bool UARTCharPutNonBlocking(uint32_t ui32Base, unsigned char ucData);
-extern void UARTCharPut(uint32_t ui32Base, unsigned char ucData);
-extern void UARTBreakCtl(uint32_t ui32Base, _Bool bBreakState);
-extern _Bool UARTBusy(uint32_t ui32Base);
-extern void UARTIntRegister(uint32_t ui32Base, void (*pfnHandler)(void));
-extern void UARTIntUnregister(uint32_t ui32Base);
-extern void UARTIntEnable(uint32_t ui32Base, uint32_t ui32IntFlags);
-extern void UARTIntDisable(uint32_t ui32Base, uint32_t ui32IntFlags);
-extern uint32_t UARTIntStatus(uint32_t ui32Base, _Bool bMasked);
-extern void UARTIntClear(uint32_t ui32Base, uint32_t ui32IntFlags);
-extern void UARTDMAEnable(uint32_t ui32Base, uint32_t ui32DMAFlags);
-extern void UARTDMADisable(uint32_t ui32Base, uint32_t ui32DMAFlags);
-extern uint32_t UARTRxErrorGet(uint32_t ui32Base);
-extern void UARTRxErrorClear(uint32_t ui32Base);
-extern void UARTSmartCardEnable(uint32_t ui32Base);
-extern void UARTSmartCardDisable(uint32_t ui32Base);
-extern void UARTModemControlSet(uint32_t ui32Base, uint32_t ui32Control);
-extern void UARTModemControlClear(uint32_t ui32Base, uint32_t ui32Control);
-extern uint32_t UARTModemControlGet(uint32_t ui32Base);
-extern uint32_t UARTModemStatusGet(uint32_t ui32Base);
-extern void UARTFlowControlSet(uint32_t ui32Base, uint32_t ui32Mode);
-extern uint32_t UARTFlowControlGet(uint32_t ui32Base);
-extern void UARTTxIntModeSet(uint32_t ui32Base, uint32_t ui32Mode);
-extern uint32_t UARTTxIntModeGet(uint32_t ui32Base);
-extern void UARTClockSourceSet(uint32_t ui32Base, uint32_t ui32Source);
-extern uint32_t UARTClockSourceGet(uint32_t ui32Base);
-extern void UART9BitEnable(uint32_t ui32Base);
-extern void UART9BitDisable(uint32_t ui32Base);
-extern void UART9BitAddrSet(uint32_t ui32Base, uint8_t ui8Addr,
-                            uint8_t ui8Mask);
-extern void UART9BitAddrSend(uint32_t ui32Base, uint8_t ui8Addr);
-extern void UARTLoopbackEnable(uint32_t ui32Base);
-
-
-
-
-
-
-
-
-
-
-#line 7 "PWM.h"
+#line 3 "src\\SysTick_helper.h"
 #line 1 ".\\inc\\tm4c123gh6pm.h"
 
 
@@ -9133,8 +9054,8 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 8 "PWM.h"
-#line 1 ".\\inc\\hw_gpio.h"
+#line 4 "src\\SysTick_helper.h"
+#line 1 ".\\driverlib\\systick.h"
 
 
 
@@ -9182,7 +9103,6 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 79 ".\\inc\\hw_gpio.h"
 
 
 
@@ -9190,321 +9110,57 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-                                            
 
 
 
 
+extern void SysTickEnable(void);
+extern void SysTickDisable(void);
+extern void SysTickIntRegister(void (*pfnHandler)(void));
+extern void SysTickIntUnregister(void);
+extern void SysTickIntEnable(void);
+extern void SysTickIntDisable(void);
+extern void SysTickPeriodSet(uint32_t ui32Period);
+extern uint32_t SysTickPeriodGet(void);
+extern uint32_t SysTickValueGet(void);
 
 
 
 
 
-                                            
 
 
 
 
 
+#line 5 "src\\SysTick_helper.h"
 
 
+struct SysTickTimer
+{
+	uint32_t mSTimer;
+	uint64_t uSTimer;
+};
 
+void SysTick_Setup(void);
+void InterruptEnable(void);
+#line 2 "src\\SysTick_helper.c"
 
-                                            
 
 
+int SetPeriod = 0x0000FFFF;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                            
-
-                                            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                            
-                                            
-                                            
-                                            
-                                            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 194 ".\\inc\\hw_gpio.h"
-                                            
-                                            
-                                            
-
-                                            
-
-                                            
-                                            
-                                            
-                                            
-                                            
-#line 212 ".\\inc\\hw_gpio.h"
-
-#line 9 "PWM.h"
-#line 1 ".\\inc\\hw_types.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 63 ".\\inc\\hw_types.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 10 "PWM.h"
-
-#line 2 "PWM.c"
-
-void delayMS(int ms) 
-	{
-    SysCtlDelay( (SysCtlClockGet()/(3*1000))*ms );
+void SysTick_Setup()
+	
+{
+	SysTickPeriodSet(SetPeriod); 
+	SysTickEnable();
 }
 
-int
-main(void)
+
+void InterruptEnable() 
 {
-    
-   SysCtlClockSet(0x07800000 | 0x00003800 |   0x00000000 | 0x00000540);
-
-   
-   SysCtlPWMClockSet(0x00000000);
-
-   
-    SysCtlPeripheralEnable(0xf0000805);
-    SysCtlPeripheralEnable(0xf0004001);  
-
-    
-    GPIOPinConfigure(GPIO_PF1_M1PWM5);
-    GPIOPinConfigure(GPIO_PF2_M1PWM6);
-    GPIOPinConfigure(GPIO_PF3_M1PWM7);
-    GPIOPinTypePWM(0x40025000, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
-
-    
-    
-    
-    PWMGenConfigure(0x40029000, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-    PWMGenConfigure(0x40029000, PWM_GEN_3, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-
-    
-    PWMGenPeriodSet(0x40029000, PWM_GEN_2, 320);
-    PWMGenPeriodSet(0x40029000, PWM_GEN_3, 320);
-
-    
-    PWMPulseWidthSet(0x40029000, PWM_OUT_5,100);
-    PWMPulseWidthSet(0x40029000, PWM_OUT_6,100);
-    PWMPulseWidthSet(0x40029000, PWM_OUT_7,100);
-
-    
-    PWMGenEnable(0x40029000, PWM_GEN_2);
-    PWMGenEnable(0x40029000, PWM_GEN_3);
-
-    
-    PWMOutputState(0x40029000, PWM_OUT_5_BIT | PWM_OUT_6_BIT | PWM_OUT_7_BIT, 1);
-
-    
-    _Bool fadeUp = 1;
-    unsigned long increment = 10;
-    unsigned long pwmNow = 100;
-    while(1)
-    {
-        delayMS(20);
-        if (fadeUp) {
-            pwmNow += increment;
-            if (pwmNow >= 320) { fadeUp = 0; }
-        }
-        else {
-            pwmNow -= increment;
-            if (pwmNow <= 10) { fadeUp = 1; }
-        }
-        PWMPulseWidthSet(0x40029000, PWM_OUT_5,pwmNow);
-        PWMPulseWidthSet(0x40029000, PWM_OUT_6,pwmNow);
-        PWMPulseWidthSet(0x40029000, PWM_OUT_7,pwmNow);
-    }
-
+	SysTickIntEnable(); 
+	
 }

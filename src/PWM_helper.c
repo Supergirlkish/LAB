@@ -1,4 +1,4 @@
-#include "PWM.h"
+#include "PWM_helper.h"
 
 void delayMS(int ms) 
 	{
@@ -19,7 +19,7 @@ main(void)
     SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM1);  //The Tiva Launchpad has two modules (0 and 1). Module 1 covers the LED pins
 
     //Configure PF1,PF2,PF3 Pins as PWM
-    GPIOPinConfigure(GPIO_PF1_M1PWM5);
+    GPIOPinConfigure(GPIO_F1_M1PWM5);
     GPIOPinConfigure(GPIO_PF2_M1PWM6);
     GPIOPinConfigure(GPIO_PF3_M1PWM7);
     GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);

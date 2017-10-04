@@ -1,5 +1,5 @@
-#line 1 "PWM.c"
-#line 1 "PWM.h"
+#line 1 "src\\PWM_helper.c"
+#line 1 "src\\PWM_helper.h"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdbool.h"
  
 
@@ -18,7 +18,7 @@
 
 
 
-#line 2 "PWM.h"
+#line 2 "src\\PWM_helper.h"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
  
  
@@ -275,7 +275,7 @@ typedef unsigned     long long uintmax_t;
 
 
  
-#line 3 "PWM.h"
+#line 3 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\sysctl.h"
 
 
@@ -569,7 +569,7 @@ extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
 
 
 
-#line 4 "PWM.h"
+#line 4 "src\\PWM_helper.h"
 #line 1 ".\\inc\\hw_memmap.h"
 
 
@@ -631,7 +631,7 @@ extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
                                             
 #line 150 ".\\inc\\hw_memmap.h"
 
-#line 5 "PWM.h"
+#line 5 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\adc.h"
 
 
@@ -842,7 +842,7 @@ extern uint32_t ADCSampleRateGet(uint32_t ui32Base);
 
 
 
-#line 6 "PWM.h"
+#line 6 "src\\PWM_helper.h"
 #line 1 ".\\driverlib\\uart.h"
 
 
@@ -1073,7 +1073,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 7 "PWM.h"
+#line 7 "src\\PWM_helper.h"
 #line 1 ".\\inc\\tm4c123gh6pm.h"
 
 
@@ -9133,7 +9133,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 8 "PWM.h"
+#line 8 "src\\PWM_helper.h"
 #line 1 ".\\inc\\hw_gpio.h"
 
 
@@ -9303,7 +9303,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
                                             
 #line 212 ".\\inc\\hw_gpio.h"
 
-#line 9 "PWM.h"
+#line 9 "src\\PWM_helper.h"
 #line 1 ".\\inc\\hw_types.h"
 
 
@@ -9437,9 +9437,432 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 10 "PWM.h"
+#line 10 "src\\PWM_helper.h"
+#line 1 ".\\driverlib\\pwm.h"
 
-#line 2 "PWM.c"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 78 ".\\driverlib\\pwm.h"
+                                            
+
+
+                                            
+
+
+                                            
+
+
+                                            
+
+
+                                            
+
+
+                                            
+
+
+
+
+
+
+
+#line 113 ".\\driverlib\\pwm.h"
+
+
+
+
+
+
+#line 128 ".\\driverlib\\pwm.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 162 ".\\driverlib\\pwm.h"
+
+#line 171 ".\\driverlib\\pwm.h"
+
+
+
+
+
+
+
+
+
+#line 187 ".\\driverlib\\pwm.h"
+
+
+
+
+
+
+
+
+
+#line 204 ".\\driverlib\\pwm.h"
+
+
+
+
+
+
+#line 218 ".\\driverlib\\pwm.h"
+
+
+
+
+
+
+
+#line 232 ".\\driverlib\\pwm.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+extern void PWMGenConfigure(uint32_t ui32Base, uint32_t ui32Gen,
+                            uint32_t ui32Config);
+extern void PWMGenPeriodSet(uint32_t ui32Base, uint32_t ui32Gen,
+                            uint32_t ui32Period);
+extern uint32_t PWMGenPeriodGet(uint32_t ui32Base,
+                                uint32_t ui32Gen);
+extern void PWMGenEnable(uint32_t ui32Base, uint32_t ui32Gen);
+extern void PWMGenDisable(uint32_t ui32Base, uint32_t ui32Gen);
+extern void PWMPulseWidthSet(uint32_t ui32Base, uint32_t ui32PWMOut,
+                             uint32_t ui32Width);
+extern uint32_t PWMPulseWidthGet(uint32_t ui32Base,
+                                 uint32_t ui32PWMOut);
+extern void PWMDeadBandEnable(uint32_t ui32Base, uint32_t ui32Gen,
+                              uint16_t ui16Rise, uint16_t ui16Fall);
+extern void PWMDeadBandDisable(uint32_t ui32Base, uint32_t ui32Gen);
+extern void PWMSyncUpdate(uint32_t ui32Base, uint32_t ui32GenBits);
+extern void PWMSyncTimeBase(uint32_t ui32Base, uint32_t ui32GenBits);
+extern void PWMOutputState(uint32_t ui32Base, uint32_t ui32PWMOutBits,
+                           _Bool bEnable);
+extern void PWMOutputInvert(uint32_t ui32Base, uint32_t ui32PWMOutBits,
+                            _Bool bInvert);
+extern void PWMOutputFaultLevel(uint32_t ui32Base,
+                                uint32_t ui32PWMOutBits,
+                                _Bool bDriveHigh);
+extern void PWMOutputFault(uint32_t ui32Base, uint32_t ui32PWMOutBits,
+                           _Bool bFaultSuppress);
+extern void PWMGenIntRegister(uint32_t ui32Base, uint32_t ui32Gen,
+                              void (*pfnIntHandler)(void));
+extern void PWMGenIntUnregister(uint32_t ui32Base, uint32_t ui32Gen);
+extern void PWMFaultIntRegister(uint32_t ui32Base,
+                                void (*pfnIntHandler)(void));
+extern void PWMFaultIntUnregister(uint32_t ui32Base);
+extern void PWMGenIntTrigEnable(uint32_t ui32Base, uint32_t ui32Gen,
+                                uint32_t ui32IntTrig);
+extern void PWMGenIntTrigDisable(uint32_t ui32Base, uint32_t ui32Gen,
+                                 uint32_t ui32IntTrig);
+extern uint32_t PWMGenIntStatus(uint32_t ui32Base, uint32_t ui32Gen,
+                                _Bool bMasked);
+extern void PWMGenIntClear(uint32_t ui32Base, uint32_t ui32Gen,
+                           uint32_t ui32Ints);
+extern void PWMIntEnable(uint32_t ui32Base, uint32_t ui32GenFault);
+extern void PWMIntDisable(uint32_t ui32Base, uint32_t ui32GenFault);
+extern void PWMFaultIntClear(uint32_t ui32Base);
+extern uint32_t PWMIntStatus(uint32_t ui32Base, _Bool bMasked);
+extern void PWMFaultIntClearExt(uint32_t ui32Base,
+                                uint32_t ui32FaultInts);
+extern void PWMGenFaultConfigure(uint32_t ui32Base, uint32_t ui32Gen,
+                                 uint32_t ui32MinFaultPeriod,
+                                 uint32_t ui32FaultSenses);
+extern void PWMGenFaultTriggerSet(uint32_t ui32Base, uint32_t ui32Gen,
+                                  uint32_t ui32Group,
+                                  uint32_t ui32FaultTriggers);
+extern uint32_t PWMGenFaultTriggerGet(uint32_t ui32Base,
+                                      uint32_t ui32Gen,
+                                      uint32_t ui32Group);
+extern uint32_t PWMGenFaultStatus(uint32_t ui32Base,
+                                  uint32_t ui32Gen,
+                                  uint32_t ui32Group);
+extern void PWMGenFaultClear(uint32_t ui32Base, uint32_t ui32Gen,
+                             uint32_t ui32Group,
+                             uint32_t ui32FaultTriggers);
+extern void PWMClockSet(uint32_t ui32Base, uint32_t ui32Config);
+extern uint32_t PWMClockGet(uint32_t ui32Base);
+extern void PWMOutputUpdateMode(uint32_t ui32Base,
+                                uint32_t ui32PWMOutBits,
+                                uint32_t ui32Mode);
+
+
+
+
+
+
+
+
+
+
+#line 11 "src\\PWM_helper.h"
+#line 1 ".\\driverlib\\gpio.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 68 ".\\driverlib\\gpio.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 91 ".\\driverlib\\gpio.h"
+
+
+
+
+
+
+
+#line 105 ".\\driverlib\\gpio.h"
+
+
+
+
+
+
+
+#line 119 ".\\driverlib\\gpio.h"
+
+
+
+
+
+
+
+#line 135 ".\\driverlib\\gpio.h"
+
+
+
+
+
+
+extern void GPIODirModeSet(uint32_t ui32Port, uint8_t ui8Pins,
+                           uint32_t ui32PinIO);
+extern uint32_t GPIODirModeGet(uint32_t ui32Port, uint8_t ui8Pin);
+extern void GPIOIntTypeSet(uint32_t ui32Port, uint8_t ui8Pins,
+                           uint32_t ui32IntType);
+extern uint32_t GPIOIntTypeGet(uint32_t ui32Port, uint8_t ui8Pin);
+extern void GPIOPadConfigSet(uint32_t ui32Port, uint8_t ui8Pins,
+                             uint32_t ui32Strength, uint32_t ui32PadType);
+extern void GPIOPadConfigGet(uint32_t ui32Port, uint8_t ui8Pin,
+                             uint32_t *pui32Strength, uint32_t *pui32PadType);
+extern void GPIOIntEnable(uint32_t ui32Port, uint32_t ui32IntFlags);
+extern void GPIOIntDisable(uint32_t ui32Port, uint32_t ui32IntFlags);
+extern uint32_t GPIOIntStatus(uint32_t ui32Port, _Bool bMasked);
+extern void GPIOIntClear(uint32_t ui32Port, uint32_t ui32IntFlags);
+extern void GPIOIntRegister(uint32_t ui32Port, void (*pfnIntHandler)(void));
+extern void GPIOIntUnregister(uint32_t ui32Port);
+extern void GPIOIntRegisterPin(uint32_t ui32Port, uint32_t ui32Pin,
+                               void (*pfnIntHandler)(void));
+extern void GPIOIntUnregisterPin(uint32_t ui32Port, uint32_t ui32Pin);
+extern int32_t GPIOPinRead(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinWrite(uint32_t ui32Port, uint8_t ui8Pins, uint8_t ui8Val);
+extern void GPIOPinConfigure(uint32_t ui32PinConfig);
+extern void GPIOPinTypeADC(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeCAN(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeComparator(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeComparatorOutput(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeDIVSCLK(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeEPI(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeEthernetLED(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeEthernetMII(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeGPIOInput(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeGPIOOutput(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeGPIOOutputOD(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeHibernateRTCCLK(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeI2C(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeI2CSCL(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeLCD(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeOneWire(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypePWM(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeQEI(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeSSI(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeTimer(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeTrace(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeUART(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeUSBAnalog(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeUSBDigital(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeWakeHigh(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeWakeLow(uint32_t ui32Port, uint8_t ui8Pins);
+extern uint32_t GPIOPinWakeStatus(uint32_t ui32Port);
+extern void GPIODMATriggerEnable(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIODMATriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOADCTriggerEnable(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
+
+
+
+
+
+
+
+
+
+
+#line 12 "src\\PWM_helper.h"
+#line 2 "src\\PWM_helper.c"
 
 void delayMS(int ms) 
 	{
@@ -9460,32 +9883,32 @@ main(void)
     SysCtlPeripheralEnable(0xf0004001);  
 
     
-    GPIOPinConfigure(GPIO_PF1_M1PWM5);
+    GPIOPinConfigure(GPIO_F1_M1PWM5);
     GPIOPinConfigure(GPIO_PF2_M1PWM6);
     GPIOPinConfigure(GPIO_PF3_M1PWM7);
-    GPIOPinTypePWM(0x40025000, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
+    GPIOPinTypePWM(0x40025000, 0x00000002 | 0x00000004 | 0x00000008);
 
     
     
     
-    PWMGenConfigure(0x40029000, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-    PWMGenConfigure(0x40029000, PWM_GEN_3, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
+    PWMGenConfigure(0x40029000, 0x000000C0, 0x00000000 | 0x00000000); 
+    PWMGenConfigure(0x40029000, 0x00000100, 0x00000000 | 0x00000000); 
 
     
-    PWMGenPeriodSet(0x40029000, PWM_GEN_2, 320);
-    PWMGenPeriodSet(0x40029000, PWM_GEN_3, 320);
+    PWMGenPeriodSet(0x40029000, 0x000000C0, 320);
+    PWMGenPeriodSet(0x40029000, 0x00000100, 320);
 
     
-    PWMPulseWidthSet(0x40029000, PWM_OUT_5,100);
-    PWMPulseWidthSet(0x40029000, PWM_OUT_6,100);
-    PWMPulseWidthSet(0x40029000, PWM_OUT_7,100);
+    PWMPulseWidthSet(0x40029000, 0x000000C5,100);
+    PWMPulseWidthSet(0x40029000, 0x00000106,100);
+    PWMPulseWidthSet(0x40029000, 0x00000107,100);
 
     
-    PWMGenEnable(0x40029000, PWM_GEN_2);
-    PWMGenEnable(0x40029000, PWM_GEN_3);
+    PWMGenEnable(0x40029000, 0x000000C0);
+    PWMGenEnable(0x40029000, 0x00000100);
 
     
-    PWMOutputState(0x40029000, PWM_OUT_5_BIT | PWM_OUT_6_BIT | PWM_OUT_7_BIT, 1);
+    PWMOutputState(0x40029000, 0x00000020 | 0x00000040 | 0x00000080, 1);
 
     
     _Bool fadeUp = 1;
@@ -9502,9 +9925,9 @@ main(void)
             pwmNow -= increment;
             if (pwmNow <= 10) { fadeUp = 1; }
         }
-        PWMPulseWidthSet(0x40029000, PWM_OUT_5,pwmNow);
-        PWMPulseWidthSet(0x40029000, PWM_OUT_6,pwmNow);
-        PWMPulseWidthSet(0x40029000, PWM_OUT_7,pwmNow);
+        PWMPulseWidthSet(0x40029000, 0x000000C5,pwmNow);
+        PWMPulseWidthSet(0x40029000, 0x00000106,pwmNow);
+        PWMPulseWidthSet(0x40029000, 0x00000107,pwmNow);
     }
 
 }

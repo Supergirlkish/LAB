@@ -23,15 +23,12 @@ __error__(char *pcFilename, uint32_t ui32Line)
 
 int  main(void)
 {
-	SysCtlClockSet(SYSCTL_XTAL_16MHZ | SYSCTL_OSC_MAIN | SYSCTL_USE_PLL | SYSCTL_SYSDIV_5);
-  
-    SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0);
-    SysCtlPeripheralReset(SYSCTL_PERIPH_ADC0);
-    volatile uint32_t ui32Loop;
+	 SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ); //set clock speed to 16 MHZ
+	
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0); //enables ADC module 0
+    SysCtlPeripheralReset(SYSCTL_PERIPH_ADC0); // resets ADC module 0 
 	  uint8_t temp;
 	
-    // Enable the GPIO port that is used for the on-board LED.
-		SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
     //SetupHardware();
 	
 		// Check if the peripheral access is enabled.
@@ -42,9 +39,9 @@ int  main(void)
     
 		// Enable the GPIO pin for the LED (PF3).  Set the direction as output, and
     // enable the GPIO pin for digital function.
-		GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1);
-		GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2);
-    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_3);
+//		GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1);
+//		GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2);
+//    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_3);
     while(1)
 		{
 // UART
@@ -75,10 +72,12 @@ int  main(void)
 
 //GPIO
 		
-{
-	 UpdateMYButtons();
+
+	GPIOSetup();
 	
-	if(Mybuttons.SW1==0)
+  UpdateMYButtons();
+	
+	if(MyButtons.SW1==0)
 				{
 				}
 				else
@@ -87,12 +86,15 @@ int  main(void)
 			TurnOnLEDs();
 	
 	}
-	if(Mybuttons.SW2==0)
+	if(MyButtons.SW2==0)
 				{
 				}
 				else
 				{	
 
-				TurnOnLEDs2
+				TurnOnLEDs2();
 		
 }
+			
+			}
+		}

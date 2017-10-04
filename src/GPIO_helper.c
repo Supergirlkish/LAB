@@ -1,4 +1,4 @@
-#include "GPIO.h"
+#include "GPIO_helper.h"
 
 void UpdateMYbuttons()
 	{
@@ -6,19 +6,32 @@ void UpdateMYbuttons()
 		
 		WorkingMode= GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_4);
 		
-		if (WorkingMode !=0) Mybuttons.SW1=0;
-		else Mybuttons.SW1 = 1;
+		if (WorkingMode !=0) MyButtons.SW1=0;
+		else MyButtons.SW1 = 1;
 
 		WorkingMode= GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0);
 		
-		if (WorkingMode!=0) Mybuttons.SW2=0;
-		else Mybuttons.SW2 = 1;
+		if (WorkingMode!=0) MyButtons.SW2=0;
+		else MyButtons.SW2 = 1;
 
 		
 	}
+	void GPIOSetup()
+	{
+		SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+		
+	{
+	}
 	
+		GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1);
+		GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2);
+    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_3);
+		
+	}
 	void TurnOnLEDs()
 	{		
+
+		 volatile uint32_t ui32Loop;
 		// Turn the LED red
 			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
 			 // Delay for a bit.
@@ -122,6 +135,7 @@ void UpdateMYbuttons()
 	
 	void TurnOnLEDs2()
 	{
+		volatile uint32_t ui32Loop;
 					//purple 	
 			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
 			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
@@ -183,4 +197,4 @@ void UpdateMYbuttons()
         {
         }
 			}
-			if(Mybuttons.SW2==1 &  Mybuttons.SW1==1)
+			

@@ -59,7 +59,7 @@ void SetupADC()
 
 void ADCReadChan()
 {
-	int32_t scratch;
+	int32_t light;
 	//
 	//
 	ADCProcessorTrigger(ADC0_BASE, 0); // Trigger the sample sequence above (sequence 0)
@@ -75,9 +75,9 @@ void ADCReadChan()
 	// Read the value from the ADC.
 	//
 	
-	scratch = (ADCSequenceDataGet(ADC0_BASE, 0, ADC_Values));
-	if (scratch < 13)
+	light = (ADCSequenceDataGet(ADC0_BASE, 0, ADC_Values));
+	if (light < 13)
 	{
-		ADC_Values[12]=scratch; 
+		ADC_Values[12]=light; 
 	}
 }

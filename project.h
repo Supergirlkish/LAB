@@ -42,13 +42,10 @@
 
 #include "TM4C123.h"                    // Device header
 
-#include "C:\Users\mmatti\Documents\GitHub\lab\ADC_helper.h"
-#include "C:\Users\mmatti\Documents\GitHub\lab\PWM.h"
-
-#include "SysTick.h"
-#include "GPIO.h"
-#include "PWM.h"
-#include "ADC_helper.h"
-
+#include "./src/SysTick_helper.h"
+#include "./src/GPIO_helper.h"
+#include "./src/PWM_helper.h"
+#include "./src/ADC_helper.h"
+#include "./src/uart_helper.h"
 
 

@@ -421,52 +421,32 @@
             <File>
               <FileName>uart_helper.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\uart_helper.c</FilePath>
+              <FilePath>.\src\uart_helper.c</FilePath>
             </File>
             <File>
               <FileName>uart_helper.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\uart_helper.h</FilePath>
+              <FilePath>.\src\uart_helper.h</FilePath>
             </File>
             <File>
               <FileName>ADC_helper.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\ADC_helper.c</FilePath>
+              <FilePath>.\src\ADC_helper.c</FilePath>
             </File>
             <File>
-              <FileName>ADC_helper.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\ADC_helper.h</FilePath>
-            </File>
-            <File>
-              <FileName>SysTick.c</FileName>
+              <FileName>GPIO_helper.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\SysTick.c</FilePath>
+              <FilePath>.\src\GPIO_helper.c</FilePath>
             </File>
             <File>
-              <FileName>SysTick.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\SysTick.h</FilePath>
-            </File>
-            <File>
-              <FileName>PWM.c</FileName>
+              <FileName>PWM_helper.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\PWM.c</FilePath>
+              <FilePath>.\src\PWM_helper.c</FilePath>
             </File>
             <File>
-              <FileName>PWM.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\PWM.h</FilePath>
-            </File>
-            <File>
-              <FileName>GPIO.c</FileName>
+              <FileName>SysTick_helper.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\GPIO.c</FilePath>
-            </File>
-            <File>
-              <FileName>GPIO.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\GPIO.h</FilePath>
+              <FilePath>.\src\SysTick_helper.c</FilePath>
             </File>
           </Files>
         </Group>

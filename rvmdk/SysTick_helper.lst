@@ -1,6 +1,6 @@
-L 1 "SysTick.c"
-N#include "SysTick.h"
-L 1 "SysTick.h" 1
+L 1 "src\SysTick_helper.c"
+N#include "SysTick_helper.h"
+L 1 "src\SysTick_helper.h" 1
 N#include <stdlib.h>
 L 1 "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h" 1
 N/* stdlib.h: ANSI draft (X3J11 May 88) library header, section 4.10 */
@@ -973,7 +973,7 @@ N
 N#endif /* __stdlib_h */
 N
 N/* end of stdlib.h */
-L 2 "SysTick.h" 2
+L 2 "src\SysTick_helper.h" 2
 N#include <stdint.h>
 L 1 "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h" 1
 N/* Copyright (C) ARM Ltd., 1999,2014 */
@@ -1305,7 +1305,7 @@ N
 N#endif /* __stdint_h */
 N
 N/* end of stdint.h */
-L 3 "SysTick.h" 2
+L 3 "src\SysTick_helper.h" 2
 N#include "tm4c123gh6pm.h"
 L 1 ".\inc\tm4c123gh6pm.h" 1
 N//*****************************************************************************
@@ -14391,8 +14391,89 @@ N
 N#endif
 N
 N#endif // __TM4C123GH6PM_H__
-L 4 "SysTick.h" 2
-N//#include "project.h"
+L 4 "src\SysTick_helper.h" 2
+N#include "systick.h"
+L 1 ".\driverlib\systick.h" 1
+N//*****************************************************************************
+N//
+N// systick.h - Prototypes for the SysTick driver.
+N//
+N// Copyright (c) 2005-2017 Texas Instruments Incorporated.  All rights reserved.
+N// Software License Agreement
+N// 
+N//   Redistribution and use in source and binary forms, with or without
+N//   modification, are permitted provided that the following conditions
+N//   are met:
+N// 
+N//   Redistributions of source code must retain the above copyright
+N//   notice, this list of conditions and the following disclaimer.
+N// 
+N//   Redistributions in binary form must reproduce the above copyright
+N//   notice, this list of conditions and the following disclaimer in the
+N//   documentation and/or other materials provided with the  
+N//   distribution.
+N// 
+N//   Neither the name of Texas Instruments Incorporated nor the names of
+N//   its contributors may be used to endorse or promote products derived
+N//   from this software without specific prior written permission.
+N// 
+N// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+N// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+N// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+N// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+N// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+N// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+N// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+N// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+N// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+N// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+N// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+N// 
+N// This is part of revision 2.1.4.178 of the Tiva Peripheral Driver Library.
+N//
+N//*****************************************************************************
+N
+N#ifndef __DRIVERLIB_SYSTICK_H__
+N#define __DRIVERLIB_SYSTICK_H__
+N
+N//*****************************************************************************
+N//
+N// If building with a C++ compiler, make all of the definitions in this header
+N// have a C binding.
+N//
+N//*****************************************************************************
+N#ifdef __cplusplus
+Sextern "C"
+S{
+N#endif
+N
+N//*****************************************************************************
+N//
+N// Prototypes for the APIs.
+N//
+N//*****************************************************************************
+Nextern void SysTickEnable(void);
+Nextern void SysTickDisable(void);
+Nextern void SysTickIntRegister(void (*pfnHandler)(void));
+Nextern void SysTickIntUnregister(void);
+Nextern void SysTickIntEnable(void);
+Nextern void SysTickIntDisable(void);
+Nextern void SysTickPeriodSet(uint32_t ui32Period);
+Nextern uint32_t SysTickPeriodGet(void);
+Nextern uint32_t SysTickValueGet(void);
+N
+N//*****************************************************************************
+N//
+N// Mark the end of the C bindings section for C++ compilers.
+N//
+N//*****************************************************************************
+N#ifdef __cplusplus
+S}
+N#endif
+N
+N#endif // __DRIVERLIB_SYSTICK_H__
+L 5 "src\SysTick_helper.h" 2
+N
 N
 Nstruct SysTickTimer
 N{
@@ -14402,47 +14483,23 @@ N};
 N
 Nvoid SysTick_Setup(void);
 Nvoid InterruptEnable(void);
-Nint SysTickDifference(struct SysTickTimer * myTimer);
-N
-W "SysTick.h" 16 36 last line of file ends without a newline
-Nextern struct SysTickTimer Mytimer;
-L 2 "SysTick.c" 2
+L 2 "src\SysTick_helper.c" 2
 N
 N//must be accurate.. for systick
 N
 Nint SetPeriod = 0x0000FFFF;
-Nint TimeDiff;
 N
 N//Taken from peripheral driver library
 Nvoid SysTick_Setup()
 N	
 N{
-W "SysTick.c" 12 2 function "SysTickPeriodSet" declared implicitly
 N	SysTickPeriodSet(SetPeriod); //Set the period to ?? ticks
-W "SysTick.c" 13 2 function "SysTickEnable" declared implicitly
 N	SysTickEnable();
 N}
 N
-N//Enable NVIC for something? 
-Nvoid InterruptEnable()
+N
+Nvoid InterruptEnable() // do we need an interrupt?
 N{
-W "SysTick.c" 19 2 function "SysTickIntEnable" declared implicitly
 N	SysTickIntEnable(); //enable SysTick Interrupt
-N	//write some code to setup an interrupt for SysTick Timer
-N	//where to put this code? 
-N	//IntEnable(INT_GPIOF_TM4C123); //enables interrupt for PORTF
+N	//interrupt for systick
 N}
-N
-N//Create a function that accepts 2 pointers to a timer struct and measures the time difference between the events.
-Nint SysTickDifference(struct SysTickTimer * myTimer)
-N{
-N	
-W "SysTick.c" 29 19 function "SysTickValueGet" declared implicitly
-N	int CounterVal = SysTickValueGet();
-N	TimeDiff = (SetPeriod-CounterVal)*(12.5);
-N	Mytimer.uSTimer = TimeDiff/(10^3);	
-N	Mytimer.mSTimer = TimeDiff/(10^6);
-N	
-W "SysTick.c" 34 1 missing return statement at end of non-void function "SysTickDifference" 
-N}
-N

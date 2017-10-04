@@ -1,7 +1,6 @@
-L 1 "src\ADC_helper.c"
-N//Matthew Matti & Lakeysha Green
-N#include "ADC_helper.h"
-L 1 "src\ADC_helper.h" 1
+L 1 "src\PWM_helper.c"
+N#include "PWM_helper.h"
+L 1 "src\PWM_helper.h" 1
 N#include <stdbool.h>
 L 1 "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h" 1
 N/* stdbool.h: ISO/IEC 9899:1999 (C99), section 7.16 */
@@ -31,7 +30,7 @@ N  #endif
 N
 N#endif /* __bool_true_false_are_defined */
 N
-L 2 "src\ADC_helper.h" 2
+L 2 "src\PWM_helper.h" 2
 N#include <stdint.h>
 L 1 "C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h" 1
 N/* Copyright (C) ARM Ltd., 1999,2014 */
@@ -363,7 +362,7 @@ N
 N#endif /* __stdint_h */
 N
 N/* end of stdint.h */
-L 3 "src\ADC_helper.h" 2
+L 3 "src\PWM_helper.h" 2
 N#include "sysctl.h"
 L 1 ".\driverlib\sysctl.h" 1
 N//*****************************************************************************
@@ -1035,7 +1034,7 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_SYSCTL_H__
-L 4 "src\ADC_helper.h" 2
+L 4 "src\PWM_helper.h" 2
 N#include "hw_memmap.h"
 L 1 ".\inc\hw_memmap.h" 1
 N//*****************************************************************************
@@ -1189,7 +1188,7 @@ N#define NVIC_BASE               0xE000E000  // Nested Vectored Interrupt Ctrl
 N#define TPIU_BASE               0xE0040000  // Trace Port Interface Unit
 N
 N#endif // __HW_MEMMAP_H__
-L 5 "src\ADC_helper.h" 2
+L 5 "src\PWM_helper.h" 2
 N#include "adc.h"
 L 1 ".\driverlib\adc.h" 1
 N//*****************************************************************************
@@ -1535,7 +1534,7 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_ADC_H__
-L 6 "src\ADC_helper.h" 2
+L 6 "src\PWM_helper.h" 2
 N#include "uart.h"
 L 1 ".\driverlib\uart.h" 1
 N//*****************************************************************************
@@ -1801,7 +1800,7 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_UART_H__
-L 7 "src\ADC_helper.h" 2
+L 7 "src\PWM_helper.h" 2
 N#include "tm4c123gh6pm.h"
 L 1 ".\inc\tm4c123gh6pm.h" 1
 N//*****************************************************************************
@@ -14887,7 +14886,7 @@ N
 N#endif
 N
 N#endif // __TM4C123GH6PM_H__
-L 8 "src\ADC_helper.h" 2
+L 8 "src\PWM_helper.h" 2
 N#include "hw_gpio.h"
 L 1 ".\inc\hw_gpio.h" 1
 N//*****************************************************************************
@@ -15103,7 +15102,7 @@ N#define GPIO_PC_EDM2_S          4
 N#define GPIO_PC_EDM1_S          2
 N
 N#endif // __HW_GPIO_H__
-L 9 "src\ADC_helper.h" 2
+L 9 "src\PWM_helper.h" 2
 N#include "hw_types.h"
 L 1 ".\inc\hw_types.h" 1
 N//*****************************************************************************
@@ -15266,7 +15265,355 @@ N#define CLASS_IS_SNOWFLAKE CLASS_IS_TM4C123
 N#endif
 N
 N#endif // __HW_TYPES_H__
-L 10 "src\ADC_helper.h" 2
+L 10 "src\PWM_helper.h" 2
+N#include "pwm.h"
+L 1 ".\driverlib\pwm.h" 1
+N//*****************************************************************************
+N//
+N// pwm.h - API function protoypes for Pulse Width Modulation (PWM) ports
+N//
+N// Copyright (c) 2005-2017 Texas Instruments Incorporated.  All rights reserved.
+N// Software License Agreement
+N// 
+N//   Redistribution and use in source and binary forms, with or without
+N//   modification, are permitted provided that the following conditions
+N//   are met:
+N// 
+N//   Redistributions of source code must retain the above copyright
+N//   notice, this list of conditions and the following disclaimer.
+N// 
+N//   Redistributions in binary form must reproduce the above copyright
+N//   notice, this list of conditions and the following disclaimer in the
+N//   documentation and/or other materials provided with the  
+N//   distribution.
+N// 
+N//   Neither the name of Texas Instruments Incorporated nor the names of
+N//   its contributors may be used to endorse or promote products derived
+N//   from this software without specific prior written permission.
+N// 
+N// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+N// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+N// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+N// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+N// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+N// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+N// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+N// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+N// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+N// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+N// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+N// 
+N// This is part of revision 2.1.4.178 of the Tiva Peripheral Driver Library.
+N//
+N//*****************************************************************************
+N
+N#ifndef __DRIVERLIB_PWM_H__
+N#define __DRIVERLIB_PWM_H__
+N
+N//*****************************************************************************
+N//
+N// If building with a C++ compiler, make all of the definitions in this header
+N// have a C binding.
+N//
+N//*****************************************************************************
+N#ifdef __cplusplus
+Sextern "C"
+S{
+N#endif
+N
+N//*****************************************************************************
+N//
+N// The following defines are passed to PWMGenConfigure() as the ui32Config
+N// parameter and specify the configuration of the PWM generator.
+N//
+N//*****************************************************************************
+N#define PWM_GEN_MODE_DOWN       0x00000000  // Down count mode
+N#define PWM_GEN_MODE_UP_DOWN    0x00000002  // Up/Down count mode
+N#define PWM_GEN_MODE_SYNC       0x00000038  // Synchronous updates
+N#define PWM_GEN_MODE_NO_SYNC    0x00000000  // Immediate updates
+N#define PWM_GEN_MODE_DBG_RUN    0x00000004  // Continue running in debug mode
+N#define PWM_GEN_MODE_DBG_STOP   0x00000000  // Stop running in debug mode
+N#define PWM_GEN_MODE_FAULT_LATCHED \
+N                                0x00040000  // Fault is latched
+X#define PWM_GEN_MODE_FAULT_LATCHED                                 0x00040000  
+N#define PWM_GEN_MODE_FAULT_UNLATCHED \
+N                                0x00000000  // Fault is not latched
+X#define PWM_GEN_MODE_FAULT_UNLATCHED                                 0x00000000  
+N#define PWM_GEN_MODE_FAULT_MINPER \
+N                                0x00020000  // Enable min fault period
+X#define PWM_GEN_MODE_FAULT_MINPER                                 0x00020000  
+N#define PWM_GEN_MODE_FAULT_NO_MINPER \
+N                                0x00000000  // Disable min fault period
+X#define PWM_GEN_MODE_FAULT_NO_MINPER                                 0x00000000  
+N#define PWM_GEN_MODE_FAULT_EXT  0x00010000  // Enable extended fault support
+N#define PWM_GEN_MODE_FAULT_LEGACY \
+N                                0x00000000  // Disable extended fault support
+X#define PWM_GEN_MODE_FAULT_LEGACY                                 0x00000000  
+N#define PWM_GEN_MODE_DB_NO_SYNC 0x00000000  // Deadband updates occur
+N                                            // immediately
+N#define PWM_GEN_MODE_DB_SYNC_LOCAL \
+N                                0x0000A800  // Deadband updates locally
+X#define PWM_GEN_MODE_DB_SYNC_LOCAL                                 0x0000A800  
+N                                            // synchronized
+N#define PWM_GEN_MODE_DB_SYNC_GLOBAL \
+N                                0x0000FC00  // Deadband updates globally
+X#define PWM_GEN_MODE_DB_SYNC_GLOBAL                                 0x0000FC00  
+N                                            // synchronized
+N#define PWM_GEN_MODE_GEN_NO_SYNC \
+N                                0x00000000  // Generator mode updates occur
+X#define PWM_GEN_MODE_GEN_NO_SYNC                                 0x00000000  
+N                                            // immediately
+N#define PWM_GEN_MODE_GEN_SYNC_LOCAL \
+N                                0x00000280  // Generator mode updates locally
+X#define PWM_GEN_MODE_GEN_SYNC_LOCAL                                 0x00000280  
+N                                            // synchronized
+N#define PWM_GEN_MODE_GEN_SYNC_GLOBAL \
+N                                0x000003C0  // Generator mode updates globally
+X#define PWM_GEN_MODE_GEN_SYNC_GLOBAL                                 0x000003C0  
+N                                            // synchronized
+N
+N//*****************************************************************************
+N//
+N// Defines for enabling, disabling, and clearing PWM generator interrupts and
+N// triggers.
+N//
+N//*****************************************************************************
+N#define PWM_INT_CNT_ZERO        0x00000001  // Int if COUNT = 0
+N#define PWM_INT_CNT_LOAD        0x00000002  // Int if COUNT = LOAD
+N#define PWM_INT_CNT_AU          0x00000004  // Int if COUNT = CMPA U
+N#define PWM_INT_CNT_AD          0x00000008  // Int if COUNT = CMPA D
+N#define PWM_INT_CNT_BU          0x00000010  // Int if COUNT = CMPA U
+N#define PWM_INT_CNT_BD          0x00000020  // Int if COUNT = CMPA D
+N#define PWM_TR_CNT_ZERO         0x00000100  // Trig if COUNT = 0
+N#define PWM_TR_CNT_LOAD         0x00000200  // Trig if COUNT = LOAD
+N#define PWM_TR_CNT_AU           0x00000400  // Trig if COUNT = CMPA U
+N#define PWM_TR_CNT_AD           0x00000800  // Trig if COUNT = CMPA D
+N#define PWM_TR_CNT_BU           0x00001000  // Trig if COUNT = CMPA U
+N#define PWM_TR_CNT_BD           0x00002000  // Trig if COUNT = CMPA D
+N
+N//*****************************************************************************
+N//
+N// Defines for enabling, disabling, and clearing PWM interrupts.
+N//
+N//*****************************************************************************
+N#define PWM_INT_GEN_0           0x00000001  // Generator 0 interrupt
+N#define PWM_INT_GEN_1           0x00000002  // Generator 1 interrupt
+N#define PWM_INT_GEN_2           0x00000004  // Generator 2 interrupt
+N#define PWM_INT_GEN_3           0x00000008  // Generator 3 interrupt
+N#define PWM_INT_FAULT0          0x00010000  // Fault0 interrupt
+N#define PWM_INT_FAULT1          0x00020000  // Fault1 interrupt
+N#define PWM_INT_FAULT2          0x00040000  // Fault2 interrupt
+N#define PWM_INT_FAULT3          0x00080000  // Fault3 interrupt
+N#define PWM_INT_FAULT_M         0x000F0000  // Fault interrupt source mask
+N
+N//*****************************************************************************
+N//
+N// Defines to identify the generators within a module.
+N//
+N//*****************************************************************************
+N#define PWM_GEN_0               0x00000040  // Offset address of Gen0
+N#define PWM_GEN_1               0x00000080  // Offset address of Gen1
+N#define PWM_GEN_2               0x000000C0  // Offset address of Gen2
+N#define PWM_GEN_3               0x00000100  // Offset address of Gen3
+N
+N#define PWM_GEN_0_BIT           0x00000001  // Bit-wise ID for Gen0
+N#define PWM_GEN_1_BIT           0x00000002  // Bit-wise ID for Gen1
+N#define PWM_GEN_2_BIT           0x00000004  // Bit-wise ID for Gen2
+N#define PWM_GEN_3_BIT           0x00000008  // Bit-wise ID for Gen3
+N
+N#define PWM_GEN_EXT_0           0x00000800  // Offset of Gen0 ext address range
+N#define PWM_GEN_EXT_1           0x00000880  // Offset of Gen1 ext address range
+N#define PWM_GEN_EXT_2           0x00000900  // Offset of Gen2 ext address range
+N#define PWM_GEN_EXT_3           0x00000980  // Offset of Gen3 ext address range
+N
+N//*****************************************************************************
+N//
+N// Defines to identify the outputs within a module.
+N//
+N//*****************************************************************************
+N#define PWM_OUT_0               0x00000040  // Encoded offset address of PWM0
+N#define PWM_OUT_1               0x00000041  // Encoded offset address of PWM1
+N#define PWM_OUT_2               0x00000082  // Encoded offset address of PWM2
+N#define PWM_OUT_3               0x00000083  // Encoded offset address of PWM3
+N#define PWM_OUT_4               0x000000C4  // Encoded offset address of PWM4
+N#define PWM_OUT_5               0x000000C5  // Encoded offset address of PWM5
+N#define PWM_OUT_6               0x00000106  // Encoded offset address of PWM6
+N#define PWM_OUT_7               0x00000107  // Encoded offset address of PWM7
+N
+N#define PWM_OUT_0_BIT           0x00000001  // Bit-wise ID for PWM0
+N#define PWM_OUT_1_BIT           0x00000002  // Bit-wise ID for PWM1
+N#define PWM_OUT_2_BIT           0x00000004  // Bit-wise ID for PWM2
+N#define PWM_OUT_3_BIT           0x00000008  // Bit-wise ID for PWM3
+N#define PWM_OUT_4_BIT           0x00000010  // Bit-wise ID for PWM4
+N#define PWM_OUT_5_BIT           0x00000020  // Bit-wise ID for PWM5
+N#define PWM_OUT_6_BIT           0x00000040  // Bit-wise ID for PWM6
+N#define PWM_OUT_7_BIT           0x00000080  // Bit-wise ID for PWM7
+N
+N//*****************************************************************************
+N//
+N// Defines to identify each of the possible fault trigger conditions in
+N// PWM_FAULT_GROUP_0.
+N//
+N//*****************************************************************************
+N#define PWM_FAULT_GROUP_0       0
+N
+N#define PWM_FAULT_FAULT0        0x00000001
+N#define PWM_FAULT_FAULT1        0x00000002
+N#define PWM_FAULT_FAULT2        0x00000004
+N#define PWM_FAULT_FAULT3        0x00000008
+N#define PWM_FAULT_ACMP0         0x00010000
+N#define PWM_FAULT_ACMP1         0x00020000
+N#define PWM_FAULT_ACMP2         0x00040000
+N
+N//*****************************************************************************
+N//
+N// Defines to identify each of the possible fault trigger conditions in
+N// PWM_FAULT_GROUP_1.
+N//
+N//*****************************************************************************
+N#define PWM_FAULT_GROUP_1       1
+N
+N#define PWM_FAULT_DCMP0         0x00000001
+N#define PWM_FAULT_DCMP1         0x00000002
+N#define PWM_FAULT_DCMP2         0x00000004
+N#define PWM_FAULT_DCMP3         0x00000008
+N#define PWM_FAULT_DCMP4         0x00000010
+N#define PWM_FAULT_DCMP5         0x00000020
+N#define PWM_FAULT_DCMP6         0x00000040
+N#define PWM_FAULT_DCMP7         0x00000080
+N
+N//*****************************************************************************
+N//
+N// Defines to identify the sense of each of the external FAULTn signals
+N//
+N//*****************************************************************************
+N#define PWM_FAULT0_SENSE_HIGH   0x00000000
+N#define PWM_FAULT0_SENSE_LOW    0x00000001
+N#define PWM_FAULT1_SENSE_HIGH   0x00000000
+N#define PWM_FAULT1_SENSE_LOW    0x00000002
+N#define PWM_FAULT2_SENSE_HIGH   0x00000000
+N#define PWM_FAULT2_SENSE_LOW    0x00000004
+N#define PWM_FAULT3_SENSE_HIGH   0x00000000
+N#define PWM_FAULT3_SENSE_LOW    0x00000008
+N
+N//*****************************************************************************
+N//
+N// Defines that can be passed to the PWMClockSet() API as the ui32Config
+N// parameter, and can be returned by the PWMClockGet() API.
+N//
+N//*****************************************************************************
+N#define PWM_SYSCLK_DIV_1        0x00000000  // PWM clock is system clock
+N#define PWM_SYSCLK_DIV_2        0x00000100  // PWM clock is system clock /2
+N#define PWM_SYSCLK_DIV_4        0x00000101  // PWM clock is system clock /4
+N#define PWM_SYSCLK_DIV_8        0x00000102  // PWM clock is system clock /8
+N#define PWM_SYSCLK_DIV_16       0x00000103  // PWM clock is system clock /16
+N#define PWM_SYSCLK_DIV_32       0x00000104  // PWM clock is system clock /32
+N#define PWM_SYSCLK_DIV_64       0x00000105  // PWM clock is system clock /64
+N
+N//*****************************************************************************
+N//
+N// Defines passed to PWMOutputUpdateMode() to identify the synchronization mode
+N// to use when enabling or disabling outputs using PWMOutputState().
+N//
+N//*****************************************************************************
+N#define PWM_OUTPUT_MODE_NO_SYNC 0x00000000 // Updates to occur immediately
+N#define PWM_OUTPUT_MODE_SYNC_LOCAL \
+N                                0x00000002 // Updates are locally synchronized
+X#define PWM_OUTPUT_MODE_SYNC_LOCAL                                 0x00000002 
+N#define PWM_OUTPUT_MODE_SYNC_GLOBAL \
+N                                0x00000003 // Updates are globally synchronized
+X#define PWM_OUTPUT_MODE_SYNC_GLOBAL                                 0x00000003 
+N
+N//*****************************************************************************
+N//
+N// API Function prototypes
+N//
+N//*****************************************************************************
+Nextern void PWMGenConfigure(uint32_t ui32Base, uint32_t ui32Gen,
+N                            uint32_t ui32Config);
+Nextern void PWMGenPeriodSet(uint32_t ui32Base, uint32_t ui32Gen,
+N                            uint32_t ui32Period);
+Nextern uint32_t PWMGenPeriodGet(uint32_t ui32Base,
+N                                uint32_t ui32Gen);
+Nextern void PWMGenEnable(uint32_t ui32Base, uint32_t ui32Gen);
+Nextern void PWMGenDisable(uint32_t ui32Base, uint32_t ui32Gen);
+Nextern void PWMPulseWidthSet(uint32_t ui32Base, uint32_t ui32PWMOut,
+N                             uint32_t ui32Width);
+Nextern uint32_t PWMPulseWidthGet(uint32_t ui32Base,
+N                                 uint32_t ui32PWMOut);
+Nextern void PWMDeadBandEnable(uint32_t ui32Base, uint32_t ui32Gen,
+N                              uint16_t ui16Rise, uint16_t ui16Fall);
+Nextern void PWMDeadBandDisable(uint32_t ui32Base, uint32_t ui32Gen);
+Nextern void PWMSyncUpdate(uint32_t ui32Base, uint32_t ui32GenBits);
+Nextern void PWMSyncTimeBase(uint32_t ui32Base, uint32_t ui32GenBits);
+Nextern void PWMOutputState(uint32_t ui32Base, uint32_t ui32PWMOutBits,
+N                           bool bEnable);
+X                           _Bool bEnable);
+Nextern void PWMOutputInvert(uint32_t ui32Base, uint32_t ui32PWMOutBits,
+N                            bool bInvert);
+X                            _Bool bInvert);
+Nextern void PWMOutputFaultLevel(uint32_t ui32Base,
+N                                uint32_t ui32PWMOutBits,
+N                                bool bDriveHigh);
+X                                _Bool bDriveHigh);
+Nextern void PWMOutputFault(uint32_t ui32Base, uint32_t ui32PWMOutBits,
+N                           bool bFaultSuppress);
+X                           _Bool bFaultSuppress);
+Nextern void PWMGenIntRegister(uint32_t ui32Base, uint32_t ui32Gen,
+N                              void (*pfnIntHandler)(void));
+Nextern void PWMGenIntUnregister(uint32_t ui32Base, uint32_t ui32Gen);
+Nextern void PWMFaultIntRegister(uint32_t ui32Base,
+N                                void (*pfnIntHandler)(void));
+Nextern void PWMFaultIntUnregister(uint32_t ui32Base);
+Nextern void PWMGenIntTrigEnable(uint32_t ui32Base, uint32_t ui32Gen,
+N                                uint32_t ui32IntTrig);
+Nextern void PWMGenIntTrigDisable(uint32_t ui32Base, uint32_t ui32Gen,
+N                                 uint32_t ui32IntTrig);
+Nextern uint32_t PWMGenIntStatus(uint32_t ui32Base, uint32_t ui32Gen,
+N                                bool bMasked);
+X                                _Bool bMasked);
+Nextern void PWMGenIntClear(uint32_t ui32Base, uint32_t ui32Gen,
+N                           uint32_t ui32Ints);
+Nextern void PWMIntEnable(uint32_t ui32Base, uint32_t ui32GenFault);
+Nextern void PWMIntDisable(uint32_t ui32Base, uint32_t ui32GenFault);
+Nextern void PWMFaultIntClear(uint32_t ui32Base);
+Nextern uint32_t PWMIntStatus(uint32_t ui32Base, bool bMasked);
+Xextern uint32_t PWMIntStatus(uint32_t ui32Base, _Bool bMasked);
+Nextern void PWMFaultIntClearExt(uint32_t ui32Base,
+N                                uint32_t ui32FaultInts);
+Nextern void PWMGenFaultConfigure(uint32_t ui32Base, uint32_t ui32Gen,
+N                                 uint32_t ui32MinFaultPeriod,
+N                                 uint32_t ui32FaultSenses);
+Nextern void PWMGenFaultTriggerSet(uint32_t ui32Base, uint32_t ui32Gen,
+N                                  uint32_t ui32Group,
+N                                  uint32_t ui32FaultTriggers);
+Nextern uint32_t PWMGenFaultTriggerGet(uint32_t ui32Base,
+N                                      uint32_t ui32Gen,
+N                                      uint32_t ui32Group);
+Nextern uint32_t PWMGenFaultStatus(uint32_t ui32Base,
+N                                  uint32_t ui32Gen,
+N                                  uint32_t ui32Group);
+Nextern void PWMGenFaultClear(uint32_t ui32Base, uint32_t ui32Gen,
+N                             uint32_t ui32Group,
+N                             uint32_t ui32FaultTriggers);
+Nextern void PWMClockSet(uint32_t ui32Base, uint32_t ui32Config);
+Nextern uint32_t PWMClockGet(uint32_t ui32Base);
+Nextern void PWMOutputUpdateMode(uint32_t ui32Base,
+N                                uint32_t ui32PWMOutBits,
+N                                uint32_t ui32Mode);
+N
+N//*****************************************************************************
+N//
+N// Mark the end of the C bindings section for C++ compilers.
+N//
+N//*****************************************************************************
+N#ifdef __cplusplus
+S}
+N#endif
+N
+N#endif // __DRIVERLIB_PWM_H__
+L 11 "src\PWM_helper.h" 2
+W "src\PWM_helper.h" 11 18 last line of file ends without a newline
 N#include "gpio.h"
 L 1 ".\driverlib\gpio.h" 1
 N//*****************************************************************************
@@ -15474,127 +15821,98 @@ S}
 N#endif
 N
 N#endif // __DRIVERLIB_GPIO_H__
-L 11 "src\ADC_helper.h" 2
-Nextern uint32_t ADC_Values[13];
+L 12 "src\PWM_helper.h" 2
+L 2 "src\PWM_helper.c" 2
 N
-Nextern uint32_t photoresistor;
-N	
-Nstruct ADC_Strings_FSRs
-N{
-N	uint32_t String1;
-N	uint32_t String2;
-N	uint32_t String3;
-N	uint32_t String4;
-N	uint32_t FSR1;
-N	uint32_t FSR2;
-N	uint32_t FSR3;
-N	uint32_t FSR4;
-N};
-N	
-N
-Nvoid SetupADC(void);
-Nvoid ADCReadChan(void);  
-N
-W "src\ADC_helper.h" 31 52 last line of file ends without a newline
-Nextern struct ADC_Strings_FSRs StringAndFSR_values;
-L 3 "src\ADC_helper.c" 2
-N
-Nuint32_t ADC_Values[13];
-N
-N
-N
-Nvoid SetupADCPins(void);
-N
-N//set up for 2 pots and accelerometer + 1 extra
-Nvoid SetupADCPins()
-N{
-N	GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_3|GPIO_PIN_2|GPIO_PIN_1); // pin 3 is AIN0 pin 2 is AIN1 pin 1 is AIN2 (bit wise or 0b00000111)
-X	GPIOPinTypeADC(0x40024000,0x00000008|0x00000004|0x00000002); 
-N	GPIOPinTypeADC(GPIO_PORTD_BASE,GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); //AIN7-pin 0, AIN6-pin 1, AIN5 - pin 2, AIN4- pin 3 (bit wise or 0b00001111)
-X	GPIOPinTypeADC(0x40007000,0x00000001|0x00000002|0x00000004|0x00000008); 
-N	//GPIOPinTypeADC(GPIO_PORTE_BASE,GPIO_PIN_2);
-N	
+Nvoid delayMS(int ms) 
+N	{
+N    SysCtlDelay( (SysCtlClockGet()/(3*1000))*ms );
 N}
 N
-Nvoid SetupADC()
+Nint
+Nmain(void)
 N{
-N	
-N	SetupADCPins(); //setup the GPIO
-N	
-N	//
-N	// Enable the ADC0 module.
-N	//
-N	SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0); //module 1/2.. module 2/2 not used
-X	SysCtlPeripheralEnable(0xf0003800); 
-N	//
-N	// Wait for the ADC0 module to be ready.
-N	//
-N	while(!SysCtlPeripheralReady(SYSCTL_PERIPH_ADC0)) 
-X	while(!SysCtlPeripheralReady(0xf0003800)) 
-N	{
-N	}
-N	
-N	ADCReferenceSet(ADC0_BASE, ADC_REF_EXT_3V); //for reference so a 3 V supply must be given to the AVREF pin
-X	ADCReferenceSet(0x40038000, 0x00000001); 
-N	//
-N	// Enable the first sample sequencer to capture the value of channel 0 when
-N	// the processor trigger occurs.
-N	//
-N	ADCSequenceDisable(ADC0_BASE,0); 
-X	ADCSequenceDisable(0x40038000,0); 
-N	ADCSequenceConfigure(ADC0_BASE, 0, ADC_TRIGGER_PROCESSOR, 0); 
-X	ADCSequenceConfigure(0x40038000, 0, 0x00000000, 0); 
-N	//ADCSequenceStepConfigure(ADC0_BASE, 0, 0,	ADC_CTL_IE | ADC_CTL_END | ADC_CTL_CH1 | ADC_CTL_CH2| ADC_CTL_CH4| ADC_CTL_CH5| ADC_CTL_CH6| ADC_CTL_CH7);
-N	ADCSequenceStepConfigure(ADC0_BASE, 0, 0, ADC_CTL_CH0 );
-X	ADCSequenceStepConfigure(0x40038000, 0, 0, 0x00000000 );
-N  ADCSequenceStepConfigure(ADC0_BASE, 0, 1, ADC_CTL_CH1 );	
-X  ADCSequenceStepConfigure(0x40038000, 0, 1, 0x00000001 );	
-N  ADCSequenceStepConfigure(ADC0_BASE, 0, 2, ADC_CTL_CH2 );	
-X  ADCSequenceStepConfigure(0x40038000, 0, 2, 0x00000002 );	
-N	ADCSequenceStepConfigure(ADC0_BASE, 0, 3, ADC_CTL_CH4 );	
-X	ADCSequenceStepConfigure(0x40038000, 0, 3, 0x00000004 );	
-N	ADCSequenceStepConfigure(ADC0_BASE, 0, 4, ADC_CTL_CH5 );	
-X	ADCSequenceStepConfigure(0x40038000, 0, 4, 0x00000005 );	
-N	ADCSequenceStepConfigure(ADC0_BASE, 0, 5, ADC_CTL_CH6 );	
-X	ADCSequenceStepConfigure(0x40038000, 0, 5, 0x00000006 );	
-N	ADCSequenceStepConfigure(ADC0_BASE, 0, 6, ADC_CTL_CH7 | ADC_CTL_END);	
-X	ADCSequenceStepConfigure(0x40038000, 0, 6, 0x00000007 | 0x00000020);	
-N	
-N	
-N	//ADCSequenceStepConfigure(ADC0_BASE, 0, 0,	ADC_CTL_IE | ADC_CTL_END | ADC_CTL_CH1 );
-N	
-N	
-N	ADCSequenceEnable(ADC0_BASE, 0); //enables the sequence 0
-X	ADCSequenceEnable(0x40038000, 0); 
+N    //Set the clock
+N   SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC |   SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
+X   SysCtlClockSet(0x07800000 | 0x00003800 |   0x00000000 | 0x00000540);
 N
-N		
-N}
+N   //Configure PWM Clock to match system
+N   SysCtlPWMClockSet(SYSCTL_PWMDIV_1);
+X   SysCtlPWMClockSet(0x00000000);
 N
-Nvoid ADCReadChan()
-N{
-N	int32_t light;
-N	//
-N	//
-N	ADCProcessorTrigger(ADC0_BASE, 0); // Trigger the sample sequence above (sequence 0)
-X	ADCProcessorTrigger(0x40038000, 0); 
+N   // Enable the peripherals used by this program.
+N    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+X    SysCtlPeripheralEnable(0xf0000805);
+N    SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM1);  //The Tiva Launchpad has two modules (0 and 1). Module 1 covers the LED pins
+X    SysCtlPeripheralEnable(0xf0004001);  
 N
-N	//
-N	// Wait until the sample sequence has completed.
-N	//
-N	while(ADCBusy(ADC0_BASE)){};
-X	while(ADCBusy(0x40038000)){};
-N	//while(!ADCIntStatus(ADC0_BASE, 0, false))
-N	{
-N	}
-N	//
-N	// Read the value from the ADC.
-N	//
-N	
-N	light = (ADCSequenceDataGet(ADC0_BASE, 0, ADC_Values));
-X	light = (ADCSequenceDataGet(0x40038000, 0, ADC_Values));
-N	if (light < 13)
-N	{
-N		ADC_Values[12]=light; 
-N	}
-W "src\ADC_helper.c" 83 2 last line of file ends without a newline
+N    //Configure PF1,PF2,PF3 Pins as PWM
+E "src\PWM_helper.c" 22 22 identifier "GPIO_F1_M1PWM5" is undefined
+N    GPIOPinConfigure(GPIO_F1_M1PWM5);
+E "src\PWM_helper.c" 23 22 identifier "GPIO_PF2_M1PWM6" is undefined
+N    GPIOPinConfigure(GPIO_PF2_M1PWM6);
+E "src\PWM_helper.c" 24 22 identifier "GPIO_PF3_M1PWM7" is undefined
+N    GPIOPinConfigure(GPIO_PF3_M1PWM7);
+N    GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
+X    GPIOPinTypePWM(0x40025000, 0x00000002 | 0x00000004 | 0x00000008);
+N
+N    //Configure PWM Options
+N    //PWM_GEN_2 Covers M1PWM4 and M1PWM5
+N    //PWM_GEN_3 Covers M1PWM6 and M1PWM7 See page 207 4/11/13 DriverLib doc
+N    PWMGenConfigure(PWM1_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
+X    PWMGenConfigure(0x40029000, 0x000000C0, 0x00000000 | 0x00000000); 
+N    PWMGenConfigure(PWM1_BASE, PWM_GEN_3, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
+X    PWMGenConfigure(0x40029000, 0x00000100, 0x00000000 | 0x00000000); 
+N
+N    //Set the Period (expressed in clock ticks)
+N    PWMGenPeriodSet(PWM1_BASE, PWM_GEN_2, 320);
+X    PWMGenPeriodSet(0x40029000, 0x000000C0, 320);
+N    PWMGenPeriodSet(PWM1_BASE, PWM_GEN_3, 320);
+X    PWMGenPeriodSet(0x40029000, 0x00000100, 320);
+N
+N    //Set PWM duty-50% (Period /2)
+N    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_5,100);
+X    PWMPulseWidthSet(0x40029000, 0x000000C5,100);
+N    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6,100);
+X    PWMPulseWidthSet(0x40029000, 0x00000106,100);
+N    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_7,100);
+X    PWMPulseWidthSet(0x40029000, 0x00000107,100);
+N
+N    // Enable the PWM generator
+N    PWMGenEnable(PWM1_BASE, PWM_GEN_2);
+X    PWMGenEnable(0x40029000, 0x000000C0);
+N    PWMGenEnable(PWM1_BASE, PWM_GEN_3);
+X    PWMGenEnable(0x40029000, 0x00000100);
+N
+N    // Turn on the Output pins
+N    PWMOutputState(PWM1_BASE, PWM_OUT_5_BIT | PWM_OUT_6_BIT | PWM_OUT_7_BIT, true);
+X    PWMOutputState(0x40029000, 0x00000020 | 0x00000040 | 0x00000080, 1);
+N
+N    //Fade
+N    bool fadeUp = true;
+X    _Bool fadeUp = 1;
+N    unsigned long increment = 10;
+N    unsigned long pwmNow = 100;
+N    while(1)
+N    {
+N        delayMS(20);
+N        if (fadeUp) {
+N            pwmNow += increment;
+N            if (pwmNow >= 320) { fadeUp = false; }
+X            if (pwmNow >= 320) { fadeUp = 0; }
+N        }
+N        else {
+N            pwmNow -= increment;
+N            if (pwmNow <= 10) { fadeUp = true; }
+X            if (pwmNow <= 10) { fadeUp = 1; }
+N        }
+N        PWMPulseWidthSet(PWM1_BASE, PWM_OUT_5,pwmNow);
+X        PWMPulseWidthSet(0x40029000, 0x000000C5,pwmNow);
+N        PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6,pwmNow);
+X        PWMPulseWidthSet(0x40029000, 0x00000106,pwmNow);
+N        PWMPulseWidthSet(PWM1_BASE, PWM_OUT_7,pwmNow);
+X        PWMPulseWidthSet(0x40029000, 0x00000107,pwmNow);
+N    }
+N
+W "src\PWM_helper.c" 69 2 last line of file ends without a newline
 N}

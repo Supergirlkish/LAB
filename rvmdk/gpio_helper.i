@@ -1,5 +1,5 @@
-#line 1 "PWM.c"
-#line 1 "PWM.h"
+#line 1 "src\\GPIO_helper.c"
+#line 1 "src\\GPIO_helper.h"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdbool.h"
  
 
@@ -18,7 +18,7 @@
 
 
 
-#line 2 "PWM.h"
+#line 2 "src\\GPIO_helper.h"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
  
  
@@ -275,7 +275,7 @@ typedef unsigned     long long uintmax_t;
 
 
  
-#line 3 "PWM.h"
+#line 3 "src\\GPIO_helper.h"
 #line 1 ".\\driverlib\\sysctl.h"
 
 
@@ -569,7 +569,7 @@ extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
 
 
 
-#line 4 "PWM.h"
+#line 4 "src\\GPIO_helper.h"
 #line 1 ".\\inc\\hw_memmap.h"
 
 
@@ -631,7 +631,7 @@ extern _Bool SysCtlVCOGet(uint32_t ui32Crystal, uint32_t *pui32VCOFrequency);
                                             
 #line 150 ".\\inc\\hw_memmap.h"
 
-#line 5 "PWM.h"
+#line 5 "src\\GPIO_helper.h"
 #line 1 ".\\driverlib\\adc.h"
 
 
@@ -842,7 +842,7 @@ extern uint32_t ADCSampleRateGet(uint32_t ui32Base);
 
 
 
-#line 6 "PWM.h"
+#line 6 "src\\GPIO_helper.h"
 #line 1 ".\\driverlib\\uart.h"
 
 
@@ -1073,7 +1073,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 7 "PWM.h"
+#line 7 "src\\GPIO_helper.h"
 #line 1 ".\\inc\\tm4c123gh6pm.h"
 
 
@@ -9133,7 +9133,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 8 "PWM.h"
+#line 8 "src\\GPIO_helper.h"
 #line 1 ".\\inc\\hw_gpio.h"
 
 
@@ -9303,7 +9303,7 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
                                             
 #line 212 ".\\inc\\hw_gpio.h"
 
-#line 9 "PWM.h"
+#line 9 "src\\GPIO_helper.h"
 #line 1 ".\\inc\\hw_types.h"
 
 
@@ -9437,74 +9437,395 @@ extern void UARTLoopbackEnable(uint32_t ui32Base);
 
 
 
-#line 10 "PWM.h"
+#line 10 "src\\GPIO_helper.h"
+#line 1 ".\\driverlib\\gpio.h"
 
-#line 2 "PWM.c"
 
-void delayMS(int ms) 
-	{
-    SysCtlDelay( (SysCtlClockGet()/(3*1000))*ms );
-}
 
-int
-main(void)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 68 ".\\driverlib\\gpio.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 91 ".\\driverlib\\gpio.h"
+
+
+
+
+
+
+
+#line 105 ".\\driverlib\\gpio.h"
+
+
+
+
+
+
+
+#line 119 ".\\driverlib\\gpio.h"
+
+
+
+
+
+
+
+#line 135 ".\\driverlib\\gpio.h"
+
+
+
+
+
+
+extern void GPIODirModeSet(uint32_t ui32Port, uint8_t ui8Pins,
+                           uint32_t ui32PinIO);
+extern uint32_t GPIODirModeGet(uint32_t ui32Port, uint8_t ui8Pin);
+extern void GPIOIntTypeSet(uint32_t ui32Port, uint8_t ui8Pins,
+                           uint32_t ui32IntType);
+extern uint32_t GPIOIntTypeGet(uint32_t ui32Port, uint8_t ui8Pin);
+extern void GPIOPadConfigSet(uint32_t ui32Port, uint8_t ui8Pins,
+                             uint32_t ui32Strength, uint32_t ui32PadType);
+extern void GPIOPadConfigGet(uint32_t ui32Port, uint8_t ui8Pin,
+                             uint32_t *pui32Strength, uint32_t *pui32PadType);
+extern void GPIOIntEnable(uint32_t ui32Port, uint32_t ui32IntFlags);
+extern void GPIOIntDisable(uint32_t ui32Port, uint32_t ui32IntFlags);
+extern uint32_t GPIOIntStatus(uint32_t ui32Port, _Bool bMasked);
+extern void GPIOIntClear(uint32_t ui32Port, uint32_t ui32IntFlags);
+extern void GPIOIntRegister(uint32_t ui32Port, void (*pfnIntHandler)(void));
+extern void GPIOIntUnregister(uint32_t ui32Port);
+extern void GPIOIntRegisterPin(uint32_t ui32Port, uint32_t ui32Pin,
+                               void (*pfnIntHandler)(void));
+extern void GPIOIntUnregisterPin(uint32_t ui32Port, uint32_t ui32Pin);
+extern int32_t GPIOPinRead(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinWrite(uint32_t ui32Port, uint8_t ui8Pins, uint8_t ui8Val);
+extern void GPIOPinConfigure(uint32_t ui32PinConfig);
+extern void GPIOPinTypeADC(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeCAN(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeComparator(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeComparatorOutput(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeDIVSCLK(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeEPI(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeEthernetLED(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeEthernetMII(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeGPIOInput(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeGPIOOutput(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeGPIOOutputOD(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeHibernateRTCCLK(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeI2C(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeI2CSCL(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeLCD(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeOneWire(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypePWM(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeQEI(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeSSI(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeTimer(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeTrace(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeUART(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeUSBAnalog(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeUSBDigital(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeWakeHigh(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOPinTypeWakeLow(uint32_t ui32Port, uint8_t ui8Pins);
+extern uint32_t GPIOPinWakeStatus(uint32_t ui32Port);
+extern void GPIODMATriggerEnable(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIODMATriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOADCTriggerEnable(uint32_t ui32Port, uint8_t ui8Pins);
+extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
+
+
+
+
+
+
+
+
+
+
+#line 11 "src\\GPIO_helper.h"
+
+
+
+void UpdateMYButtons(void);
+
+
+
+ struct MyButtons
 {
-    
-   SysCtlClockSet(0x07800000 | 0x00003800 |   0x00000000 | 0x00000540);
+	uint8_t SW1;
+ 	uint8_t SW2;
+	
+};
 
-   
-   SysCtlPWMClockSet(0x00000000);
+  extern struct MyButtons MyButtons;
+  void GPIOSetup(void);
+  void TurnOnLEDs(void);
+  void TurnOnLEDs2(void);
+#line 2 "src\\GPIO_helper.c"
 
-   
-    SysCtlPeripheralEnable(0xf0000805);
-    SysCtlPeripheralEnable(0xf0004001);  
+void UpdateMYbuttons()
+	{
+		uint8_t WorkingMode;
+		
+		WorkingMode= GPIOPinRead(0x40025000,0x00000010);
+		
+		if (WorkingMode !=0) MyButtons.SW1=0;
+		else MyButtons.SW1 = 1;
 
-    
-    GPIOPinConfigure(GPIO_PF1_M1PWM5);
-    GPIOPinConfigure(GPIO_PF2_M1PWM6);
-    GPIOPinConfigure(GPIO_PF3_M1PWM7);
-    GPIOPinTypePWM(0x40025000, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
+		WorkingMode= GPIOPinRead(0x40025000,0x00000001);
+		
+		if (WorkingMode!=0) MyButtons.SW2=0;
+		else MyButtons.SW2 = 1;
 
-    
-    
-    
-    PWMGenConfigure(0x40029000, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
-    PWMGenConfigure(0x40029000, PWM_GEN_3, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); 
+		
+	}
+	void GPIOSetup()
+	{
+		SysCtlPeripheralEnable(0xf0000805);
+		
+	{
+	}
+	
+		GPIOPinTypeGPIOOutput(0x40025000, 0x00000002);
+		GPIOPinTypeGPIOOutput(0x40025000, 0x00000004);
+    GPIOPinTypeGPIOOutput(0x40025000, 0x00000008);
+		
+	}
+	void TurnOnLEDs()
+	{		
 
-    
-    PWMGenPeriodSet(0x40029000, PWM_GEN_2, 320);
-    PWMGenPeriodSet(0x40029000, PWM_GEN_3, 320);
+		 volatile uint32_t ui32Loop;
+		
+			GPIOPinWrite (0x40025000, 0x00000002, 0XF );
+			 
+       for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+	     {
+			 }
+			 GPIOPinWrite(0x40025000, 0x00000002, 0x0);
+       
+       for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+       {
+			 }				 
+			
+			
+			GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+			 
+       for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)		
+        {
+        } 	
+	
+		  GPIOPinWrite(0x40025000, 0x00000004, 0x0);
 
-    
-    PWMPulseWidthSet(0x40029000, PWM_OUT_5,100);
-    PWMPulseWidthSet(0x40029000, PWM_OUT_6,100);
-    PWMPulseWidthSet(0x40029000, PWM_OUT_7,100);
+       
+        for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+        {
+				}					
 
-    
-    PWMGenEnable(0x40029000, PWM_GEN_2);
-    PWMGenEnable(0x40029000, PWM_GEN_3);
-
-    
-    PWMOutputState(0x40029000, PWM_OUT_5_BIT | PWM_OUT_6_BIT | PWM_OUT_7_BIT, 1);
-
-    
-    _Bool fadeUp = 1;
-    unsigned long increment = 10;
-    unsigned long pwmNow = 100;
-    while(1)
-    {
-        delayMS(20);
-        if (fadeUp) {
-            pwmNow += increment;
-            if (pwmNow >= 320) { fadeUp = 0; }
+			
+			
+			GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+      
+        for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+        {
         }
-        else {
-            pwmNow -= increment;
-            if (pwmNow <= 10) { fadeUp = 1; }
-        }
-        PWMPulseWidthSet(0x40029000, PWM_OUT_5,pwmNow);
-        PWMPulseWidthSet(0x40029000, PWM_OUT_6,pwmNow);
-        PWMPulseWidthSet(0x40029000, PWM_OUT_7,pwmNow);
-    }
+																										         
+      GPIOPinWrite(0x40025000, 0x00000008, 0x0);
 
-}
+        for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++) 
+				{
+				}
+			
+			GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000002, 0XF );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+			
+			GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+			
+			GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000002, 0XF );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+        {
+        }
+				
+      GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+			
+			GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+	    GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
+
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+				
+			
+			GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000002, 0XF );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				
+				{
+				}
+
+	    GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+
+        {
+        }
+			}
+	
+	void TurnOnLEDs2()
+	{
+		volatile uint32_t ui32Loop;
+					
+			GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000002, 0XF );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+			
+			GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+			
+			GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000002, 0XF );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+        {
+        }
+				
+      GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+			
+			GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+	    GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
+
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				{
+				}
+				
+			
+			GPIOPinWrite (0x40025000, 0x00000008, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000004, 0XF );
+			GPIOPinWrite (0x40025000, 0x00000002, 0XF );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				
+				{
+				}
+
+	    GPIOPinWrite (0x40025000, 0x00000008, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000004, 0X0 );
+			GPIOPinWrite (0x40025000, 0x00000002, 0X0 );
+				
+				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+
+        {
+        }
+			}
+			
