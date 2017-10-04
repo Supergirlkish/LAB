@@ -4,6 +4,7 @@
 uint32_t ADC_Values[13];
 
 
+
 void SetupADCPins(void);
 
 //set up for 2 pots and accelerometer + 1 extra
@@ -53,7 +54,6 @@ void SetupADC()
 	
 	ADCSequenceEnable(ADC0_BASE, 0); //enables the sequence 0
 
-	
 		
 }
 

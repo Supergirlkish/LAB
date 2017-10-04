@@ -1,11 +1,6 @@
 //Matthew Matti & Lakeysha Green 
 #include "project.h"
-#include <stdio.h>
-#include <stdint.h>
-#include "ADC_helper.c"
-#include "ADC_helper.h"
-//#include "uart_helper.c"
-//#include "uart_helper.h"
+
 //*****************************************************************************
 //
 // Working on the ADC today 9/27/17
@@ -28,6 +23,10 @@ __error__(char *pcFilename, uint32_t ui32Line)
 
 int  main(void)
 {
+	SysCtlClockSet(SYSCTL_XTAL_16MHZ | SYSCTL_OSC_MAIN | SYSCTL_USE_PLL | SYSCTL_SYSDIV_5);
+  
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0);
+    SysCtlPeripheralReset(SYSCTL_PERIPH_ADC0);
     volatile uint32_t ui32Loop;
 	  uint8_t temp;
 	
@@ -48,7 +47,8 @@ int  main(void)
     GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_3);
     while(1)
 		{
-//   {
+// UART
+//			{
 //		  UARTCharPut(UART0_BASE, temp);
 //			printf("Type in a character \n");
 //			
@@ -72,112 +72,27 @@ int  main(void)
 				
 				
 		//	}
-	
+
+//GPIO
 		
 {
-				
-			// Turn the LED red
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
-			 // Delay for a bit.
-       for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
-	     {
-			 }
-			 GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0x0);
-       // Delay for a bit.
-       for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
-       {
-			 }				 
-			
-			//Turn the LED blue
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
-			 // Delay for a bit.
-       for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)		
-        {
-        } 	
+	 UpdateMYButtons();
 	
-		  GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, 0x0);
-
-       // Delay for a bit.
-        for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
-        {
-				}					
-
-			
-			// Turn the LED green
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0XF );
-      // Delay for a bit.
-        for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
-        {
-        }
-																										         
-      GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, 0x0);
-
-        for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++) // Delay for a bit.
+	if(Mybuttons.SW1==0)
 				{
 				}
-			//purple 	
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
-				
-				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
+				else
+				{				
+		
+			TurnOnLEDs();
+	
+	}
+	if(Mybuttons.SW2==0)
 				{
 				}
-			
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0X0 );
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0X0 );
-				
-				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
-				{
-				}
-			//yellow
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0XF );
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
-				
-				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
-        {
-        }
-				
-      GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0X0 );
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0X0 );
-				
-				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
-				{
-				}
-			//cyan
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0XF );
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
-				
-				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
-				{
-				}
-	    GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0X0 );
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0X0 );
+				else
+				{	
 
-				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
-				{
-				}
-				
-			//white	
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0XF );
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0XF );
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0XF );
-				
-				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
-				
-				{
-				}
-
-	    GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_3, 0X0 );
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_2, 0X0 );
-			GPIOPinWrite (GPIO_PORTF_BASE, GPIO_PIN_1, 0X0 );
-				
-				for(ui32Loop = 0; ui32Loop < 1000000; ui32Loop++)
-
-        {
-        }
-			
-    
-  }
-
-}
+				TurnOnLEDs2
+		
 }

@@ -1,8 +1,9 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "tm4c123gh6pm.h"
+#include "project.h"
 
-struct SysTickTimers
+struct SysTickTimer
 {
 	uint32_t mSTimer;
 	uint64_t uSTimer;
@@ -10,6 +11,6 @@ struct SysTickTimers
 
 void SysTick_Setup(void);
 void InterruptEnable(void);
-int SysTickDifference(struct SysTickTimers * myTimer);
+int SysTickDifference(struct SysTickTimer * myTimer);
 
-extern struct SysTickTimers Mytimer;
+extern struct SysTickTimer Mytimer;

@@ -40,11 +40,15 @@
 #include "driverlib/usb.h"
 #include "driverlib/watchdog.h"
 
+#include "TM4C123.h"                    // Device header
 
-
-#include "C:\Users\mmatti\Documents\GitHub\lab\SysTick.h"
 #include "C:\Users\mmatti\Documents\GitHub\lab\ADC_helper.h"
 #include "C:\Users\mmatti\Documents\GitHub\lab\PWM.h"
 
 #include "SysTick.h"
+#include "GPIO.h"
+#include "PWM.h"
+#include "ADC_helper.h"
+
+
 
