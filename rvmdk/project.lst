@@ -50213,15 +50213,15 @@ N#define __FPU_PRESENT                  1            /*!< FPU present or not    
 N/** @} */ /* End of group Configuration_of_CMSIS */
 N
 N#include "core_cm4.h"                               /*!< Cortex-M4 processor and core peripherals                              */
-L 1 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h" 1
+L 1 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\core_cm4.h" 1
 N/**************************************************************************//**
 N * @file     core_cm4.h
 N * @brief    CMSIS Cortex-M4 Core Peripheral Access Layer Header File
-N * @version  V5.0.1
-N * @date     30. January 2017
+N * @version  V5.0.2
+N * @date     19. April 2017
 N ******************************************************************************/
 N/*
-N * Copyright (c) 2009-2016 ARM Limited. All rights reserved.
+N * Copyright (c) 2009-2017 ARM Limited. All rights reserved.
 N *
 N * SPDX-License-Identifier: Apache-2.0
 N *
@@ -50278,11 +50278,57 @@ N  \ingroup Cortex_M4
 N  @{
 N */
 N
-N/*  CMSIS CM4 definitions */
-N#define __CM4_CMSIS_VERSION_MAIN  ( 5U)                                  /*!< [31:16] CMSIS HAL main version */
-N#define __CM4_CMSIS_VERSION_SUB   ( 0U)                                  /*!< [15:0]  CMSIS HAL sub version */
+N#include "cmsis_version.h"
+L 1 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\cmsis_version.h" 1
+N/**************************************************************************//**
+N * @file     cmsis_version.h
+N * @brief    CMSIS Core(M) Version definitions
+N * @version  V5.0.2
+N * @date     19. April 2017
+N ******************************************************************************/
+N/*
+N * Copyright (c) 2009-2017 ARM Limited. All rights reserved.
+N *
+N * SPDX-License-Identifier: Apache-2.0
+N *
+N * Licensed under the Apache License, Version 2.0 (the License); you may
+N * not use this file except in compliance with the License.
+N * You may obtain a copy of the License at
+N *
+N * www.apache.org/licenses/LICENSE-2.0
+N *
+N * Unless required by applicable law or agreed to in writing, software
+N * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+N * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+N * See the License for the specific language governing permissions and
+N * limitations under the License.
+N */
+N
+N#if   defined ( __ICCARM__ )
+X#if   0L
+S #pragma system_include         /* treat file as system include file for MISRA check */
+S#elif defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+X#elif 1L && (5060528 >= 6010050)
+S  #pragma clang system_header   /* treat file as system include file */
+N#endif
+N
+N#ifndef __CMSIS_VERSION_H
+N#define __CMSIS_VERSION_H
+N
+N/*  CMSIS Version definitions */
+N#define __CM_CMSIS_VERSION_MAIN  ( 5U)                                      /*!< [31:16] CMSIS Core(M) main version */
+N#define __CM_CMSIS_VERSION_SUB   ( 0U)                                      /*!< [15:0]  CMSIS Core(M) sub version */
+N#define __CM_CMSIS_VERSION       ((__CM_CMSIS_VERSION_MAIN << 16U) | \
+N                                   __CM_CMSIS_VERSION_SUB           )       /*!< CMSIS Core(M) version number */
+X#define __CM_CMSIS_VERSION       ((__CM_CMSIS_VERSION_MAIN << 16U) |                                    __CM_CMSIS_VERSION_SUB           )        
+N#endif
+L 64 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\core_cm4.h" 2
+N 
+N/* CMSIS CM4 definitions */
+N#define __CM4_CMSIS_VERSION_MAIN  (__CM_CMSIS_VERSION_MAIN)              /*!< \deprecated [31:16] CMSIS HAL main version */
+N#define __CM4_CMSIS_VERSION_SUB   (__CM_CMSIS_VERSION_SUB)               /*!< \deprecated [15:0]  CMSIS HAL sub version */
 N#define __CM4_CMSIS_VERSION       ((__CM4_CMSIS_VERSION_MAIN << 16U) | \
-N                                    __CM4_CMSIS_VERSION_SUB           )  /*!< CMSIS HAL version number */
+N                                    __CM4_CMSIS_VERSION_SUB           )  /*!< \deprecated CMSIS HAL version number */
 X#define __CM4_CMSIS_VERSION       ((__CM4_CMSIS_VERSION_MAIN << 16U) |                                     __CM4_CMSIS_VERSION_SUB           )   
 N
 N#define __CORTEX_M                (4U)                                   /*!< Cortex-M Core */
@@ -50380,12 +50426,12 @@ S
 N#endif
 N
 N#include "cmsis_compiler.h"               /* CMSIS compiler specific defines */
-L 1 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h" 1
+L 1 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\cmsis_compiler.h" 1
 N/**************************************************************************//**
 N * @file     cmsis_compiler.h
 N * @brief    CMSIS compiler generic header file
-N * @version  V5.0.1
-N * @date     30. January 2017
+N * @version  V5.0.2
+N * @date     13. February 2017
 N ******************************************************************************/
 N/*
 N * Copyright (c) 2009-2017 ARM Limited. All rights reserved.
@@ -50416,12 +50462,12 @@ N */
 N#if   defined ( __CC_ARM )
 X#if   1L
 N  #include "cmsis_armcc.h"
-L 1 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h" 1
+L 1 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\cmsis_armcc.h" 1
 N/**************************************************************************//**
 N * @file     cmsis_armcc.h
 N * @brief    CMSIS compiler ARMCC (ARM compiler V5) header file
-N * @version  V5.0.1
-N * @date     03. February 2017
+N * @version  V5.0.2
+N * @date     13. February 2017
 N ******************************************************************************/
 N/*
 N * Copyright (c) 2009-2017 ARM Limited. All rights reserved.
@@ -50473,36 +50519,53 @@ N
 N
 N/* CMSIS compiler specific defines */
 N#ifndef   __ASM
-N  #define __ASM                     __asm
+N  #define __ASM                                  __asm
 N#endif
 N#ifndef   __INLINE
-N  #define __INLINE                  __inline
+N  #define __INLINE                               __inline
 N#endif
 N#ifndef   __STATIC_INLINE
-N  #define __STATIC_INLINE           static __inline
+N  #define __STATIC_INLINE                        static __inline
 N#endif
 N#ifndef   __NO_RETURN
-N  #define __NO_RETURN               __declspec(noreturn)
+N  #define __NO_RETURN                            __declspec(noreturn)
 N#endif
 N#ifndef   __USED
-N  #define __USED                    __attribute__((used))
+N  #define __USED                                 __attribute__((used))
 N#endif
 N#ifndef   __WEAK
-N  #define __WEAK                    __attribute__((weak))
-N#endif
-N#ifndef   __UNALIGNED_UINT32
-N  #define __UNALIGNED_UINT32(x)     (*((__packed uint32_t *)(x)))
-N#endif
-N#ifndef   __ALIGNED
-N  #define __ALIGNED(x)              __attribute__((aligned(x)))
+N  #define __WEAK                                 __attribute__((weak))
 N#endif
 N#ifndef   __PACKED
-N  #define __PACKED                  __attribute__((packed))
+N  #define __PACKED                               __attribute__((packed))
 N#endif
 N#ifndef   __PACKED_STRUCT
-N  #define __PACKED_STRUCT           __packed struct
+N  #define __PACKED_STRUCT                        __packed struct
 N#endif
-N
+N#ifndef   __PACKED_UNION
+N  #define __PACKED_UNION                         __packed union
+N#endif
+N#ifndef   __UNALIGNED_UINT32        /* deprecated */
+N  #define __UNALIGNED_UINT32(x)                  (*((__packed uint32_t *)(x)))
+N#endif
+N#ifndef   __UNALIGNED_UINT16_WRITE
+N  #define __UNALIGNED_UINT16_WRITE(addr, val)    ((*((__packed uint16_t *)(addr))) = (val))
+N#endif
+N#ifndef   __UNALIGNED_UINT16_READ
+N  #define __UNALIGNED_UINT16_READ(addr)          (*((const __packed uint16_t *)(addr)))
+N#endif
+N#ifndef   __UNALIGNED_UINT32_WRITE
+N  #define __UNALIGNED_UINT32_WRITE(addr, val)    ((*((__packed uint32_t *)(addr))) = (val))
+N#endif
+N#ifndef   __UNALIGNED_UINT32_READ
+N  #define __UNALIGNED_UINT32_READ(addr)          (*((const __packed uint32_t *)(addr)))
+N#endif
+N#ifndef   __ALIGNED
+N  #define __ALIGNED(x)                           __attribute__((aligned(x)))
+N#endif
+N#ifndef   __RESTRICT
+N  #define __RESTRICT                             __restrict
+N#endif
 N
 N/* ###########################  Core Function Access  ########################### */
 N/** \ingroup  CMSIS_Core_FunctionInterface
@@ -51278,7 +51341,7 @@ N/*@} end of group CMSIS_SIMD_intrinsics */
 N
 N
 N#endif /* __CMSIS_ARMCC_H */
-L 35 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h" 2
+L 35 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\cmsis_compiler.h" 2
 N
 N
 N/*
@@ -51300,40 +51363,101 @@ S * IAR Compiler
 S */
 S#elif defined ( __ICCARM__ )
 S
+S
 S  #ifndef   __ASM
-S    #define __ASM                     __asm
+S    #define __ASM                                  __asm
 S  #endif
 S  #ifndef   __INLINE
-S    #define __INLINE                  inline
+S    #define __INLINE                               inline
 S  #endif
 S  #ifndef   __STATIC_INLINE
-S    #define __STATIC_INLINE           static inline
+S    #define __STATIC_INLINE                        static inline
 S  #endif
 S
 S  #include <cmsis_iar.h>
 S
+S  /* CMSIS compiler control architecture macros */
+S  #if (__CORE__ == __ARM6M__) || (__CORE__ == __ARM6SM__)
+S    #ifndef __ARM_ARCH_6M__
+S      #define __ARM_ARCH_6M__                      1
+S    #endif
+S  #elif (__CORE__ == __ARM7M__)
+S    #ifndef __ARM_ARCH_7M__
+S      #define __ARM_ARCH_7M__                      1
+S    #endif
+S  #elif (__CORE__ == __ARM7EM__)
+S    #ifndef __ARM_ARCH_7EM__
+S      #define __ARM_ARCH_7EM__                     1
+S    #endif
+S  #endif
+S
 S  #ifndef   __NO_RETURN
-S    #define __NO_RETURN               __noreturn
+S    #define __NO_RETURN                            __noreturn
 S  #endif
 S  #ifndef   __USED
-S    #define __USED                    __root
+S    #define __USED                                 __root
 S  #endif
 S  #ifndef   __WEAK
-S    #define __WEAK                    __weak
+S    #define __WEAK                                 __weak
 S  #endif
-S  #ifndef   __UNALIGNED_UINT32
+S  #ifndef   __PACKED
+S    #define __PACKED                               __packed
+S  #endif
+S  #ifndef   __PACKED_STRUCT
+S    #define __PACKED_STRUCT                        __packed struct
+S  #endif
+S  #ifndef   __PACKED_UNION
+S    #define __PACKED_UNION                         __packed union
+S  #endif
+S  #ifndef   __UNALIGNED_UINT32        /* deprecated */
 S    __packed struct T_UINT32 { uint32_t v; };
-S      #define __UNALIGNED_UINT32(x)     (((struct T_UINT32 *)(x))->v)
+S    #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
+S  #endif
+S  #ifndef   __UNALIGNED_UINT16_WRITE
+S    __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+S    #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))->v) = (val))
+S  #endif
+S  #ifndef   __UNALIGNED_UINT16_READ
+S    __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+S    #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(addr))->v)
+S  #endif
+S  #ifndef   __UNALIGNED_UINT32_WRITE
+S    __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+S    #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))->v) = (val))
+S  #endif
+S  #ifndef   __UNALIGNED_UINT32_READ
+S    __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+S    #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(addr))->v)
 S  #endif
 S  #ifndef   __ALIGNED
 S    #warning No compiler specific solution for __ALIGNED. __ALIGNED is ignored.
 S    #define __ALIGNED(x)
 S  #endif
-S  #ifndef   __PACKED
-S    #define __PACKED                  __packed
+S  #ifndef   __RESTRICT
+S    #warning No compiler specific solution for __RESTRICT. __RESTRICT is ignored.
+S    #define __RESTRICT
 S  #endif
-S  #ifndef   __PACKED_STRUCT
-S    #define __PACKED_STRUCT           __packed struct
+S
+S  // Workaround for missing __CLZ intrinsic in
+S  // various versions of the IAR compilers.
+S  // __IAR_FEATURE_CLZ__ should be defined by
+S  // the compiler that supports __CLZ internally.
+S  #if (defined (__ARM_ARCH_6M__)) && (__ARM_ARCH_6M__ == 1) && (!defined (__IAR_FEATURE_CLZ__))
+S    __STATIC_INLINE uint32_t __CLZ(uint32_t data)
+S    {
+S      if (data == 0u) { return 32u; }
+S      
+S      uint32_t count = 0;
+S      uint32_t mask = 0x80000000;
+S      
+S      while ((data & mask) == 0)
+S      {
+S        count += 1u;
+S        mask = mask >> 1u;
+S      }
+S      
+S      return (count);
+S    }
 S  #endif
 S
 S
@@ -51344,35 +51468,58 @@ S#elif defined ( __TI_ARM__ )
 S  #include <cmsis_ccs.h>
 S
 S  #ifndef   __ASM
-S    #define __ASM                     __asm
+S    #define __ASM                                  __asm
 S  #endif
 S  #ifndef   __INLINE
-S    #define __INLINE                  inline
+S    #define __INLINE                               inline
 S  #endif
 S  #ifndef   __STATIC_INLINE
-S    #define __STATIC_INLINE           static inline
+S    #define __STATIC_INLINE                        static inline
 S  #endif
 S  #ifndef   __NO_RETURN
-S    #define __NO_RETURN               __attribute__((noreturn))
+S    #define __NO_RETURN                            __attribute__((noreturn))
 S  #endif
 S  #ifndef   __USED
-S    #define __USED                    __attribute__((used))
+S    #define __USED                                 __attribute__((used))
 S  #endif
 S  #ifndef   __WEAK
-S    #define __WEAK                    __attribute__((weak))
-S  #endif
-S  #ifndef   __UNALIGNED_UINT32
-S    struct __attribute__((packed)) T_UINT32 { uint32_t v; };
-S    #define __UNALIGNED_UINT32(x)     (((struct T_UINT32 *)(x))->v)
-S  #endif
-S  #ifndef   __ALIGNED
-S    #define __ALIGNED(x)              __attribute__((aligned(x)))
+S    #define __WEAK                                 __attribute__((weak))
 S  #endif
 S  #ifndef   __PACKED
-S    #define __PACKED                  __attribute__((packed))
+S    #define __PACKED                               __attribute__((packed))
 S  #endif
 S  #ifndef   __PACKED_STRUCT
-S    #define __PACKED_STRUCT           struct __attribute__((packed))
+S    #define __PACKED_STRUCT                        struct __attribute__((packed))
+S  #endif
+S  #ifndef   __PACKED_UNION
+S    #define __PACKED_UNION                         union __attribute__((packed))
+S  #endif
+S  #ifndef   __UNALIGNED_UINT32        /* deprecated */
+S    struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+S    #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
+S  #endif
+S  #ifndef   __UNALIGNED_UINT16_WRITE
+S    __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+S    #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void*)(addr))->v) = (val))
+S  #endif
+S  #ifndef   __UNALIGNED_UINT16_READ
+S    __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+S    #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(addr))->v)
+S  #endif
+S  #ifndef   __UNALIGNED_UINT32_WRITE
+S    __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+S    #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))->v) = (val))
+S  #endif
+S  #ifndef   __UNALIGNED_UINT32_READ
+S    __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+S    #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(addr))->v)
+S  #endif
+S  #ifndef   __ALIGNED
+S    #define __ALIGNED(x)                           __attribute__((aligned(x)))
+S  #endif
+S  #ifndef   __RESTRICT
+S    #warning No compiler specific solution for __RESTRICT. __RESTRICT is ignored.
+S    #define __RESTRICT
 S  #endif
 S
 S
@@ -51387,35 +51534,58 @@ S   * Including the CMSIS ones.
 S   */
 S
 S  #ifndef   __ASM
-S    #define __ASM                     __asm
+S    #define __ASM                                  __asm
 S  #endif
 S  #ifndef   __INLINE
-S    #define __INLINE                  inline
+S    #define __INLINE                               inline
 S  #endif
 S  #ifndef   __STATIC_INLINE
-S    #define __STATIC_INLINE           static inline
+S    #define __STATIC_INLINE                        static inline
 S  #endif
 S  #ifndef   __NO_RETURN
-S    #define __NO_RETURN               __attribute__((noreturn))
+S    #define __NO_RETURN                            __attribute__((noreturn))
 S  #endif
 S  #ifndef   __USED
-S    #define __USED                    __attribute__((used))
+S    #define __USED                                 __attribute__((used))
 S  #endif
 S  #ifndef   __WEAK
-S    #define __WEAK                    __attribute__((weak))
+S    #define __WEAK                                 __attribute__((weak))
 S  #endif
-S  #ifndef   __UNALIGNED_UINT32
+S  #ifndef   __PACKED
+S    #define __PACKED                               __packed__
+S  #endif
+S  #ifndef   __PACKED_STRUCT
+S    #define __PACKED_STRUCT                        struct __packed__
+S  #endif
+S  #ifndef   __PACKED_UNION
+S    #define __PACKED_UNION                         union __packed__
+S  #endif
+S  #ifndef   __UNALIGNED_UINT32        /* deprecated */
 S    struct __packed__ T_UINT32 { uint32_t v; };
-S    #define __UNALIGNED_UINT32(x)     (((struct T_UINT32 *)(x))->v)
+S    #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
+S  #endif
+S  #ifndef   __UNALIGNED_UINT16_WRITE
+S    __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+S    #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))->v) = (val))
+S  #endif
+S  #ifndef   __UNALIGNED_UINT16_READ
+S    __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+S    #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(addr))->v)
+S  #endif
+S  #ifndef   __UNALIGNED_UINT32_WRITE
+S    __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+S    #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))->v) = (val))
+S  #endif
+S  #ifndef   __UNALIGNED_UINT32_READ
+S    __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+S    #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(addr))->v)
 S  #endif
 S  #ifndef   __ALIGNED
 S    #define __ALIGNED(x)              __align(x)
 S  #endif
-S  #ifndef   __PACKED
-S    #define __PACKED                  __packed__
-S  #endif
-S  #ifndef   __PACKED_STRUCT
-S    #define __PACKED_STRUCT           struct __packed__
+S  #ifndef   __RESTRICT
+S    #warning No compiler specific solution for __RESTRICT. __RESTRICT is ignored.
+S    #define __RESTRICT
 S  #endif
 S
 S
@@ -51426,13 +51596,13 @@ S#elif defined ( __CSMC__ )
 S   #include <cmsis_csm.h>
 S
 S #ifndef   __ASM
-S    #define __ASM                     _asm
+S    #define __ASM                                  _asm
 S  #endif
 S  #ifndef   __INLINE
-S    #define __INLINE                  inline
+S    #define __INLINE                               inline
 S  #endif
 S  #ifndef   __STATIC_INLINE
-S    #define __STATIC_INLINE           static inline
+S    #define __STATIC_INLINE                        static inline
 S  #endif
 S  #ifndef   __NO_RETURN
 S    // NO RETURN is automatically detected hence no warning here
@@ -51443,21 +51613,44 @@ S    #warning No compiler specific solution for __USED. __USED is ignored.
 S    #define __USED
 S  #endif
 S  #ifndef   __WEAK
-S    #define __WEAK                    __weak
+S    #define __WEAK                                 __weak
 S  #endif
-S  #ifndef   __UNALIGNED_UINT32
+S  #ifndef   __PACKED
+S    #define __PACKED                               @packed
+S  #endif
+S  #ifndef   __PACKED_STRUCT
+S    #define __PACKED_STRUCT                        @packed struct
+S  #endif
+S  #ifndef   __PACKED_UNION
+S    #define __PACKED_UNION                         @packed union
+S  #endif
+S  #ifndef   __UNALIGNED_UINT32        /* deprecated */
 S    @packed struct T_UINT32 { uint32_t v; };
-S    #define __UNALIGNED_UINT32(x)     (((struct T_UINT32 *)(x))->v)
+S    #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
+S  #endif
+S  #ifndef   __UNALIGNED_UINT16_WRITE
+S    __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+S    #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))->v) = (val))
+S  #endif
+S  #ifndef   __UNALIGNED_UINT16_READ
+S    __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+S    #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(addr))->v)
+S  #endif
+S  #ifndef   __UNALIGNED_UINT32_WRITE
+S    __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+S    #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))->v) = (val))
+S  #endif
+S  #ifndef   __UNALIGNED_UINT32_READ
+S    __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+S    #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(addr))->v)
 S  #endif
 S  #ifndef   __ALIGNED
 S    #warning No compiler specific solution for __ALIGNED. __ALIGNED is ignored.
 S    #define __ALIGNED(x)
 S  #endif
-S  #ifndef   __PACKED
-S    #define __PACKED                  @packed
-S  #endif
-S  #ifndef   __PACKED_STRUCT
-S    #define __PACKED_STRUCT           @packed struct
+S  #ifndef   __RESTRICT
+S    #warning No compiler specific solution for __RESTRICT. __RESTRICT is ignored.
+S    #define __RESTRICT
 S  #endif
 S
 S
@@ -51468,7 +51661,7 @@ N
 N
 N#endif /* __CMSIS_COMPILER_H */
 N
-L 161 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h" 2
+L 163 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\core_cm4.h" 2
 N
 N
 N#ifdef __cplusplus
@@ -52969,14 +53162,14 @@ N */
 N
 N/* Memory mapping of Core Hardware */
 N#define SCS_BASE            (0xE000E000UL)                            /*!< System Control Space Base Address */
-W "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h" 1545 9 incompatible redefinition of macro "ITM_BASE"  (declared at line 145 of "inc/hw_memmap.h")
+W "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\core_cm4.h" 1547 9 incompatible redefinition of macro "ITM_BASE"  (declared at line 145 of "inc/hw_memmap.h")
 N#define ITM_BASE            (0xE0000000UL)                            /*!< ITM Base Address */
-W "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h" 1546 9 incompatible redefinition of macro "DWT_BASE"  (declared at line 146 of "inc/hw_memmap.h")
+W "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\core_cm4.h" 1548 9 incompatible redefinition of macro "DWT_BASE"  (declared at line 146 of "inc/hw_memmap.h")
 N#define DWT_BASE            (0xE0001000UL)                            /*!< DWT Base Address */
 N#define TPI_BASE            (0xE0040000UL)                            /*!< TPI Base Address */
 N#define CoreDebug_BASE      (0xE000EDF0UL)                            /*!< Core Debug Base Address */
 N#define SysTick_BASE        (SCS_BASE +  0x0010UL)                    /*!< SysTick Base Address */
-W "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h" 1550 9 incompatible redefinition of macro "NVIC_BASE"  (declared at line 148 of "inc/hw_memmap.h")
+W "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\core_cm4.h" 1552 9 incompatible redefinition of macro "NVIC_BASE"  (declared at line 148 of "inc/hw_memmap.h")
 N#define NVIC_BASE           (SCS_BASE +  0x0100UL)                    /*!< NVIC Base Address */
 N#define SCB_BASE            (SCS_BASE +  0x0D00UL)                    /*!< System Control Block Base Address */
 N
@@ -53413,6 +53606,223 @@ N  }
 N}
 N
 N/*@} end of CMSIS_Core_NVICFunctions */
+N
+N/* ##########################  MPU functions  #################################### */
+N
+N#if defined (__MPU_PRESENT) && (__MPU_PRESENT == 1U)
+X#if 1L && (1 == 1U)
+N
+N#include "mpu_armv7.h"
+L 1 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\mpu_armv7.h" 1
+N/******************************************************************************
+N * @file     mpu_armv7.h
+N * @brief    CMSIS MPU API for ARMv7 MPU
+N * @version  V5.0.2
+N * @date     09. June 2017
+N ******************************************************************************/
+N/*
+N * Copyright (c) 2017 ARM Limited. All rights reserved.
+N *
+N * SPDX-License-Identifier: Apache-2.0
+N *
+N * Licensed under the Apache License, Version 2.0 (the License); you may
+N * not use this file except in compliance with the License.
+N * You may obtain a copy of the License at
+N *
+N * www.apache.org/licenses/LICENSE-2.0
+N *
+N * Unless required by applicable law or agreed to in writing, software
+N * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+N * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+N * See the License for the specific language governing permissions and
+N * limitations under the License.
+N */
+N 
+N#ifndef ARM_MPU_ARMV7_H
+N#define ARM_MPU_ARMV7_H
+N
+N#define ARM_MPU_REGION_SIZE_32B      ((uint8_t)0x04U)
+N#define ARM_MPU_REGION_SIZE_64B      ((uint8_t)0x05U)
+N#define ARM_MPU_REGION_SIZE_128B     ((uint8_t)0x06U)
+N#define ARM_MPU_REGION_SIZE_256B     ((uint8_t)0x07U)
+N#define ARM_MPU_REGION_SIZE_512B     ((uint8_t)0x08U)
+N#define ARM_MPU_REGION_SIZE_1KB      ((uint8_t)0x09U)
+N#define ARM_MPU_REGION_SIZE_2KB      ((uint8_t)0x0AU)
+N#define ARM_MPU_REGION_SIZE_4KB      ((uint8_t)0x0BU)
+N#define ARM_MPU_REGION_SIZE_8KB      ((uint8_t)0x0CU)
+N#define ARM_MPU_REGION_SIZE_16KB     ((uint8_t)0x0DU)
+N#define ARM_MPU_REGION_SIZE_32KB     ((uint8_t)0x0EU)
+N#define ARM_MPU_REGION_SIZE_64KB     ((uint8_t)0x0FU)
+N#define ARM_MPU_REGION_SIZE_128KB    ((uint8_t)0x10U)
+N#define ARM_MPU_REGION_SIZE_256KB    ((uint8_t)0x11U)
+N#define ARM_MPU_REGION_SIZE_512KB    ((uint8_t)0x12U)
+N#define ARM_MPU_REGION_SIZE_1MB      ((uint8_t)0x13U)
+N#define ARM_MPU_REGION_SIZE_2MB      ((uint8_t)0x14U)
+N#define ARM_MPU_REGION_SIZE_4MB      ((uint8_t)0x15U)
+N#define ARM_MPU_REGION_SIZE_8MB      ((uint8_t)0x16U)
+N#define ARM_MPU_REGION_SIZE_16MB     ((uint8_t)0x17U)
+N#define ARM_MPU_REGION_SIZE_32MB     ((uint8_t)0x18U)
+N#define ARM_MPU_REGION_SIZE_64MB     ((uint8_t)0x19U)
+N#define ARM_MPU_REGION_SIZE_128MB    ((uint8_t)0x1AU)
+N#define ARM_MPU_REGION_SIZE_256MB    ((uint8_t)0x1BU)
+N#define ARM_MPU_REGION_SIZE_512MB    ((uint8_t)0x1CU)
+N#define ARM_MPU_REGION_SIZE_1GB      ((uint8_t)0x1DU)
+N#define ARM_MPU_REGION_SIZE_2GB      ((uint8_t)0x1EU)
+N#define ARM_MPU_REGION_SIZE_4GB      ((uint8_t)0x1FU)
+N
+N#define ARM_MPU_AP_NONE 0u 
+N#define ARM_MPU_AP_PRIV 1u
+N#define ARM_MPU_AP_URO  2u
+N#define ARM_MPU_AP_FULL 3u
+N#define ARM_MPU_AP_PRO  5u
+N#define ARM_MPU_AP_RO   6u
+N
+N/** MPU Region Base Address Register Value
+N*
+N* \param Region The region to be configured, number 0 to 15.
+N* \param BaseAddress The base address for the region.
+N*/
+N#define ARM_MPU_RBAR(Region, BaseAddress) ((BaseAddress & MPU_RBAR_ADDR_Msk) | (Region & MPU_RBAR_REGION_Msk) | (1UL << MPU_RBAR_VALID_Pos))
+N
+N/**
+N* MPU Region Attribut and Size Register Value
+N* 
+N* \param DisableExec       Instruction access disable bit, 1= disable instruction fetches.
+N* \param AccessPermission  Data access permissions, allows you to configure read/write access for User and Privileged mode.
+N* \param TypeExtField      Type extension field, allows you to configure memory access type, for example strongly ordered, peripheral.
+N* \param IsShareable       Region is shareable between multiple bus masters.
+N* \param IsCacheable       Region is cacheable, i.e. its value may be kept in cache.
+N* \param IsBufferable      Region is bufferable, i.e. using write-back caching. Cacheable but non-bufferable regions use write-through policy.
+N* \param SubRegionDisable  Sub-region disable field.
+N* \param Size              Region size of the region to be configured, for example 4K, 8K.
+N*/                         
+N#define ARM_MPU_RASR(DisableExec, AccessPermission, TypeExtField, IsShareable, IsCacheable, IsBufferable, SubRegionDisable, Size) \
+N  ((DisableExec      << MPU_RASR_XN_Pos)     & MPU_RASR_XN_Msk)     | \
+N  ((AccessPermission << MPU_RASR_AP_Pos)     & MPU_RASR_AP_Msk)     | \
+N  ((TypeExtField     << MPU_RASR_TEX_Pos)    & MPU_RASR_TEX_Msk)    | \
+N  ((IsShareable      << MPU_RASR_S_Pos)      & MPU_RASR_S_Msk)      | \
+N  ((IsCacheable      << MPU_RASR_C_Pos)      & MPU_RASR_C_Msk)      | \
+N  ((IsBufferable     << MPU_RASR_B_Pos)      & MPU_RASR_B_Msk)      | \
+N  ((SubRegionDisable << MPU_RASR_SRD_Pos)    & MPU_RASR_SRD_Msk)    | \
+N  ((Size             << MPU_RASR_SIZE_Pos)   & MPU_RASR_SIZE_Msk)   | \
+N  ((1UL              << MPU_RASR_ENABLE_Pos) & MPU_RASR_ENABLE_Msk)
+X#define ARM_MPU_RASR(DisableExec, AccessPermission, TypeExtField, IsShareable, IsCacheable, IsBufferable, SubRegionDisable, Size)   ((DisableExec      << MPU_RASR_XN_Pos)     & MPU_RASR_XN_Msk)     |   ((AccessPermission << MPU_RASR_AP_Pos)     & MPU_RASR_AP_Msk)     |   ((TypeExtField     << MPU_RASR_TEX_Pos)    & MPU_RASR_TEX_Msk)    |   ((IsShareable      << MPU_RASR_S_Pos)      & MPU_RASR_S_Msk)      |   ((IsCacheable      << MPU_RASR_C_Pos)      & MPU_RASR_C_Msk)      |   ((IsBufferable     << MPU_RASR_B_Pos)      & MPU_RASR_B_Msk)      |   ((SubRegionDisable << MPU_RASR_SRD_Pos)    & MPU_RASR_SRD_Msk)    |   ((Size             << MPU_RASR_SIZE_Pos)   & MPU_RASR_SIZE_Msk)   |   ((1UL              << MPU_RASR_ENABLE_Pos) & MPU_RASR_ENABLE_Msk)
+N
+N
+N/**
+N* Struct for a single MPU Region
+N*/
+Ntypedef struct _ARM_MPU_Region_t {
+N  uint32_t RBAR; //!< The region base address register value (RBAR)
+N  uint32_t RASR; //!< The region attribute and size register value (RASR) \ref MPU_RASR
+N} ARM_MPU_Region_t;
+N    
+N/** Enable the MPU.
+N* \param MPU_Control Default access permissions for unconfigured regions.
+N*/
+N__STATIC_INLINE void ARM_MPU_Enable(uint32_t MPU_Control)
+Xstatic __inline void ARM_MPU_Enable(uint32_t MPU_Control)
+N{
+N  __DSB();
+X  do { __schedule_barrier(); __dsb(0xF); __schedule_barrier(); } while (0U);
+N  __ISB();
+X  do { __schedule_barrier(); __isb(0xF); __schedule_barrier(); } while (0U);
+N  MPU->CTRL = MPU_Control | MPU_CTRL_ENABLE_Msk;
+X  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->CTRL = MPU_Control | (1UL );
+N#ifdef SCB_SHCSR_MEMFAULTENA_Msk
+N  SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+X  ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->SHCSR |= (1UL << 16U);
+N#endif
+N}
+N
+N/** Disable the MPU.
+N*/
+N__STATIC_INLINE void ARM_MPU_Disable()
+Xstatic __inline void ARM_MPU_Disable()
+N{
+N  __DSB();
+X  do { __schedule_barrier(); __dsb(0xF); __schedule_barrier(); } while (0U);
+N  __ISB();
+X  do { __schedule_barrier(); __isb(0xF); __schedule_barrier(); } while (0U);
+N#ifdef SCB_SHCSR_MEMFAULTENA_Msk
+N  SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+X  ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->SHCSR &= ~(1UL << 16U);
+N#endif
+N  MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+X  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->CTRL  &= ~(1UL );
+N}
+N
+N/** Clear and disable the given MPU region.
+N* \param rnr Region number to be cleared.
+N*/
+N__STATIC_INLINE void ARM_MPU_ClrRegion(uint32_t rnr)
+Xstatic __inline void ARM_MPU_ClrRegion(uint32_t rnr)
+N{
+N  MPU->RNR = rnr;
+X  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RNR = rnr;
+N  MPU->RASR = 0u;
+X  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RASR = 0u;
+N}
+N
+N/** Configure an MPU region.
+N* \param rbar Value for RBAR register.
+N* \param rsar Value for RSAR register.
+N*/   
+N__STATIC_INLINE void ARM_MPU_SetRegion(uint32_t rbar, uint32_t rasr)
+Xstatic __inline void ARM_MPU_SetRegion(uint32_t rbar, uint32_t rasr)
+N{
+N  MPU->RBAR = rbar;
+X  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RBAR = rbar;
+N  MPU->RASR = rasr;
+X  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RASR = rasr;
+N}
+N
+N/** Configure the given MPU region.
+N* \param rnr Region number to be configured.
+N* \param rbar Value for RBAR register.
+N* \param rsar Value for RSAR register.
+N*/   
+N__STATIC_INLINE void ARM_MPU_SetRegionEx(uint32_t rnr, uint32_t rbar, uint32_t rasr)
+Xstatic __inline void ARM_MPU_SetRegionEx(uint32_t rnr, uint32_t rbar, uint32_t rasr)
+N{
+N  MPU->RNR = rnr;
+X  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RNR = rnr;
+N  MPU->RBAR = rbar;
+X  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RBAR = rbar;
+N  MPU->RASR = rasr;
+X  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RASR = rasr;
+N}
+N
+N/** Memcopy with strictly ordered memory access, e.g. for register targets.
+N* \param dst Destination data is copied to.
+N* \param src Source data is copied from.
+N* \param len Amount of data words to be copied.
+N*/
+N__STATIC_INLINE void orderedCpy(volatile uint32_t* dst, const uint32_t* __RESTRICT src, uint32_t len)
+Xstatic __inline void orderedCpy(volatile uint32_t* dst, const uint32_t* __restrict src, uint32_t len)
+N{
+N  uint32_t i;
+N  for (i = 0u; i < len; ++i) 
+N  {
+N    dst[i] = src[i];
+N  }
+N}
+N
+N/** Load the given number of MPU regions from a table.
+N* \param table Pointer to the MPU configuration table.
+N* \param cnt Amount of regions to be configured.
+N*/
+N__STATIC_INLINE void ARM_MPU_Load(ARM_MPU_Region_t const* table, uint32_t cnt) 
+Xstatic __inline void ARM_MPU_Load(ARM_MPU_Region_t const* table, uint32_t cnt) 
+N{
+N  orderedCpy(&(MPU->RBAR), &(table->RBAR), cnt*sizeof(ARM_MPU_Region_t)/4u);
+X  orderedCpy(&(((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RBAR), &(table->RBAR), cnt*sizeof(ARM_MPU_Region_t)/4u);
+N}
+N
+N#endif
+L 1945 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.1\CMSIS\Include\core_cm4.h" 2
+N
+N#endif
 N
 N
 N/* ##########################  FPU functions  #################################### */

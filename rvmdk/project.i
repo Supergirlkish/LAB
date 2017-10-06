@@ -9025,7 +9025,7 @@ typedef enum {
 
    
 
-#line 1 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\core_cm4.h"
+#line 1 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\core_cm4.h"
  
 
 
@@ -9059,7 +9059,7 @@ typedef enum {
 
 
 
-#line 35 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\core_cm4.h"
+#line 35 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\core_cm4.h"
 
 
 
@@ -9088,22 +9088,7 @@ typedef enum {
 
  
 
- 
-
-
-
-
-
-
-
-
-
- 
-#line 85 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\core_cm4.h"
-
-#line 159 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\core_cm4.h"
-
-#line 1 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\cmsis_compiler.h"
+#line 1 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\cmsis_version.h"
  
 
 
@@ -9131,12 +9116,64 @@ typedef enum {
 
 
 
-#line 29 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\cmsis_compiler.h"
+
+
+
 
 
 
  
-#line 1 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\cmsis_armcc.h"
+#line 64 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\core_cm4.h"
+ 
+ 
+
+
+
+
+
+
+
+
+
+ 
+#line 87 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\core_cm4.h"
+
+#line 161 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\core_cm4.h"
+
+#line 1 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\cmsis_compiler.h"
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+#line 29 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\cmsis_compiler.h"
+
+
+
+ 
+#line 1 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\cmsis_armcc.h"
  
 
 
@@ -9188,8 +9225,7 @@ typedef enum {
 
 
  
-#line 82 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\cmsis_armcc.h"
-
+#line 100 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\cmsis_armcc.h"
 
  
 
@@ -9603,7 +9639,7 @@ __attribute__((section(".revsh_text"))) static __inline __asm int32_t __REVSH(in
 
 
  
-#line 516 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\cmsis_armcc.h"
+#line 533 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\cmsis_armcc.h"
 
 
 
@@ -9812,7 +9848,7 @@ __attribute__((section(".rrx_text"))) static __inline __asm uint32_t __RRX(uint3
 
 
 
-#line 783 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\cmsis_armcc.h"
+#line 800 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\cmsis_armcc.h"
 
 
 
@@ -9827,23 +9863,18 @@ __attribute__((section(".rrx_text"))) static __inline __asm uint32_t __RRX(uint3
  
 
 
-#line 35 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\cmsis_compiler.h"
+#line 35 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\cmsis_compiler.h"
 
 
 
 
  
-#line 220 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\cmsis_compiler.h"
+#line 350 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\cmsis_compiler.h"
 
 
 
 
-#line 161 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\core_cm4.h"
-
-
-
-
-
+#line 163 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\core_cm4.h"
 
 
 
@@ -9855,11 +9886,6 @@ __attribute__((section(".rrx_text"))) static __inline __asm uint32_t __RRX(uint3
 
 
 
-
- 
-#line 205 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\core_cm4.h"
-
- 
 
 
 
@@ -9867,7 +9893,17 @@ __attribute__((section(".rrx_text"))) static __inline __asm uint32_t __RRX(uint3
 
 
  
-#line 221 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\core_cm4.h"
+#line 207 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\core_cm4.h"
+
+ 
+
+
+
+
+
+
+ 
+#line 223 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\core_cm4.h"
 
  
 
@@ -11191,20 +11227,9 @@ typedef struct
  
 
  
-#line 1552 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\core_cm4.h"
+#line 1554 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\core_cm4.h"
 
-#line 1561 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\core_cm4.h"
-
-
-
-
-
-
-
-
-
- 
-
+#line 1563 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\core_cm4.h"
 
 
 
@@ -11217,6 +11242,17 @@ typedef struct
  
 
 
+
+
+
+
+
+
+
+
+ 
+
+
  
 
 
@@ -11229,9 +11265,9 @@ typedef struct
 
  
 
-#line 1615 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\core_cm4.h"
+#line 1617 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\core_cm4.h"
 
-#line 1625 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.0.1\\CMSIS\\Include\\core_cm4.h"
+#line 1627 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\core_cm4.h"
 
 
 
@@ -11544,6 +11580,155 @@ static __inline void __NVIC_SystemReset(void)
 }
 
  
+
+ 
+
+
+
+#line 1 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\mpu_armv7.h"
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+#line 56 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\mpu_armv7.h"
+
+#line 63 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\mpu_armv7.h"
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          
+#line 93 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\mpu_armv7.h"
+
+
+
+
+ 
+typedef struct _ARM_MPU_Region_t {
+  uint32_t RBAR; 
+  uint32_t RASR; 
+} ARM_MPU_Region_t;
+    
+
+
+ 
+static __inline void ARM_MPU_Enable(uint32_t MPU_Control)
+{
+  do { __schedule_barrier(); __dsb(0xF); __schedule_barrier(); } while (0U);
+  do { __schedule_barrier(); __isb(0xF); __schedule_barrier(); } while (0U);
+  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->CTRL = MPU_Control | (1UL );
+
+  ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->SHCSR |= (1UL << 16U);
+
+}
+
+
+ 
+static __inline void ARM_MPU_Disable()
+{
+  do { __schedule_barrier(); __dsb(0xF); __schedule_barrier(); } while (0U);
+  do { __schedule_barrier(); __isb(0xF); __schedule_barrier(); } while (0U);
+
+  ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->SHCSR &= ~(1UL << 16U);
+
+  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->CTRL  &= ~(1UL );
+}
+
+
+
+ 
+static __inline void ARM_MPU_ClrRegion(uint32_t rnr)
+{
+  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RNR = rnr;
+  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RASR = 0u;
+}
+
+
+
+
+    
+static __inline void ARM_MPU_SetRegion(uint32_t rbar, uint32_t rasr)
+{
+  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RBAR = rbar;
+  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RASR = rasr;
+}
+
+
+
+
+
+    
+static __inline void ARM_MPU_SetRegionEx(uint32_t rnr, uint32_t rbar, uint32_t rasr)
+{
+  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RNR = rnr;
+  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RBAR = rbar;
+  ((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RASR = rasr;
+}
+
+
+
+
+
+ 
+static __inline void orderedCpy(volatile uint32_t* dst, const uint32_t* __restrict src, uint32_t len)
+{
+  uint32_t i;
+  for (i = 0u; i < len; ++i) 
+  {
+    dst[i] = src[i];
+  }
+}
+
+
+
+
+ 
+static __inline void ARM_MPU_Load(ARM_MPU_Region_t const* table, uint32_t cnt) 
+{
+  orderedCpy(&(((MPU_Type *) ((0xE000E000UL) + 0x0D90UL) )->RBAR), &(table->RBAR), cnt*sizeof(ARM_MPU_Region_t)/4u);
+}
+
+#line 1945 "C:\\Keil_v5\\ARM\\PACK\\ARM\\CMSIS\\5.1.1\\CMSIS\\Include\\core_cm4.h"
+
+
 
 
  
